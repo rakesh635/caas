@@ -1,0 +1,400 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>CaaS.CP</Name>
+    <RootNamespace>CaaS.CP</RootNamespace>
+    <DebuggerPort>1423</DebuggerPort>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>792394a2-5e30-4543-bb30-522dc63a4617</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>app.js</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <ProjectView>ShowAllFiles</ProjectView>
+    <NodejsPort>8087</NodejsPort>
+    <StartWebBrowser>True</StartWebBrowser>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="apitest\apitest.js" />
+    <Compile Include="api\caas_express_socket_api.js" />
+    <Compile Include="api\helper\apikeyhelper.js" />
+    <Compile Include="api\helper\commonhelper.js" />
+    <Compile Include="api\cors.js" />
+    <Compile Include="api\helper\environmenthelper.js" />
+    <Compile Include="api\exceptionhandler.js" />
+    <Compile Include="api\helper\repohelper.js" />
+    <Compile Include="api\helper\statushelper.js" />
+    <Compile Include="api\helper\tokenvalidation.js" />
+    <Compile Include="api\helper\wsrequesthelper.js" />
+    <Compile Include="api\model\accesskeymodel.js" />
+    <Compile Include="api\model\applicationmodel.js" />
+    <Compile Include="api\model\cimodel.js" />
+    <Compile Include="api\model\containermodel.js" />
+    <Compile Include="api\model\containerstatsmodel.js" />
+    <Compile Include="api\model\environmentmodel.js" />
+    <Compile Include="api\model\hostmodel.js" />
+    <Compile Include="api\model\openstackmodel.js" />
+    <Compile Include="api\model\repomodel.js" />
+    <Compile Include="api\model\servicemodel.js" />
+    <Compile Include="api\model\stackmodel.js" />
+    <Compile Include="api\model\usermodel.js" />
+    <Compile Include="api\model\volumemodel.js" />
+    <Compile Include="api\model\wsrequestmodel.js" />
+    <Compile Include="api\route\ci.js" />
+    <Compile Include="api\route\container.js" />
+    <Compile Include="api\route\environment.js" />
+    <Compile Include="api\route\host.js" />
+    <Compile Include="api\route\openstack.js" />
+    <Compile Include="api\route\portal\application.js" />
+    <Compile Include="api\route\portal\user.js" />
+    <Compile Include="api\route\repo.js" />
+    <Compile Include="api\route\repo_webhook.js" />
+    <Compile Include="api\route\service.js" />
+    <Compile Include="api\route\stack.js" />
+    <Compile Include="api\route\token.js" />
+    <Compile Include="api\route\volume.js" />
+    <Compile Include="api\services\ciservice\jenkinclient.js" />
+    <Compile Include="api\services\githubservice\githubclient.js" />
+    <Compile Include="api\services\openstackservice\openstackclient.js" />
+    <Compile Include="api\services\rancherservice\containerclient.js" />
+    <Compile Include="api\services\rancherservice\environmentclient.js" />
+    <Compile Include="api\services\rancherservice\hostclient.js" />
+    <Compile Include="api\services\rancherservice\serviceclient.js" />
+    <Compile Include="api\services\rancherservice\stackclient.js" />
+    <Compile Include="api\services\rancherservice\volumeclient.js" />
+    <Compile Include="app.js" />
+    <Compile Include="appconfig_local.js" />
+    <Compile Include="appconfig.js" />
+    <Compile Include="helper\commonhelper.js" />
+    <Compile Include="helper\dbconnection.js" />
+    <Compile Include="lib\cilib.js" />
+    <Compile Include="lib\containerlib.js" />
+    <Compile Include="lib\environmentlib.js" />
+    <Compile Include="lib\hostlib.js" />
+    <Compile Include="lib\openstacklib.js" />
+    <Compile Include="lib\repolib.js" />
+    <Compile Include="logger\logger.js" />
+    <Compile Include="model\applicationmodel.js" />
+    <Compile Include="plib\accountlib.js" />
+    <Compile Include="plib\applicationlib.js" />
+    <Compile Include="plib\dashboardlib.js" />
+    <Compile Include="plib\environmentlib.js" />
+    <Compile Include="public\assets\js\bootstrap-notify.js" />
+    <Compile Include="public\assets\js\daterangepicker.js" />
+    <Compile Include="public\assets\js\jquery-2.1.1.js" />
+    <Compile Include="public\assets\js\jquery-over.js" />
+    <Compile Include="public\assets\js\jquery-ui-1.10.3.js" />
+    <Compile Include="public\assets\js\jquery.easyWizard.js" />
+    <Compile Include="public\assets\js\lib-ielt9.bundle.js" />
+    <Compile Include="public\assets\js\mobile-bundle.js" />
+    <Compile Include="public\assets\js\moment.min.js" />
+    <Compile Include="public\assets\js\web-bundle.js" />
+    <Compile Include="public\assets\js\web-initNav.js" />
+    <Compile Include="public\assets\plugins\bootstrap-toggle\bootstrap-toggle.min.js" />
+    <Compile Include="public\assets\plugins\datatable\dataTables.bootstrap.min.js" />
+    <Compile Include="public\assets\plugins\datatable\dataTables.responsive.min.js" />
+    <Compile Include="public\assets\plugins\datatable\fnReloadAjax.js" />
+    <Compile Include="public\assets\plugins\datatable\jquery.dataTables.min.js" />
+    <Compile Include="public\assets\plugins\datatable\responsive.bootstrap.min.js" />
+    <Compile Include="public\assets\plugins\datepicker\bootstrap-datepicker.min.js" />
+    <Compile Include="public\assets\plugins\toastr\toastr.js" />
+    <Compile Include="public\assets\plugins\validator\bootstrapValidator.min.js" />
+    <Compile Include="public\caasjslib\caasjslib.ajaxcall.js" />
+    <Compile Include="public\caasjslib\caasjslib.application.common.js" />
+    <Compile Include="public\caasjslib\caasjslib.application.eventhandler.js" />
+    <Compile Include="public\caasjslib\caasjslib.application.viewmodel.js" />
+    <Compile Include="public\caasjslib\caasjslib.common.js" />
+    <Compile Include="public\caasjslib\caasjslib.customer.viewmodel.js" />
+    <Compile Include="public\caasjslib\caasjslib.dashboard.view.js" />
+    <Compile Include="public\caasjslib\caasjslib.customer.eventhandler.js" />
+    <Compile Include="public\caasjslib\caasjslib.environment.eventhandler.js" />
+    <Compile Include="public\caasjslib\caasjslib.environment.view.js" />
+    <Compile Include="public\caasjslib\caasjslib.environment.viewmodel.js" />
+    <Compile Include="public\caasjslib\caasjslib.js" />
+    <Compile Include="public\caasjslib\caasjslib.customer.view.js" />
+    <Compile Include="public\caasjslib\caasjslib.user.eventhandler.js" />
+    <Compile Include="public\caasjslib\caasjslib.user.view.js" />
+    <Compile Include="public\caasjslib\caasjslib.user.viewmodel.js" />
+    <Compile Include="routes\account.js" />
+    <Compile Include="routes\application.js" />
+    <Compile Include="bin\www" />
+    <Compile Include="routes\customer.js">
+      <SubType>Code</SubType>
+      <TestFramework>ExportRunner</TestFramework>
+    </Compile>
+    <Compile Include="routes\dashboard.js" />
+    <Compile Include="routes\environment.js" />
+    <Compile Include="routes\user.js" />
+    <Content Include="caas.key" />
+    <Content Include="dockerservice.pfx" />
+    <Content Include="package.json" />
+    <Content Include="public\assets\css\animate.css" />
+    <Content Include="public\assets\css\custom-cz.css" />
+    <Content Include="public\assets\css\custom.css" />
+    <Content Include="public\assets\css\daterangepicker.css" />
+    <Content Include="public\assets\css\jquery-ui-1.8.23.css" />
+    <Content Include="public\assets\css\mobile-bundle.css" />
+    <Content Include="public\assets\css\sidemenu.css" />
+    <Content Include="public\assets\css\web-bundle.css" />
+    <Content Include="public\assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="public\assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="public\assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="public\assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="public\assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="public\assets\fonts\FontAwesome.otf" />
+    <Content Include="public\assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="public\assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="public\assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="public\assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="public\assets\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="public\assets\fonts\gudea\GudeaBold.eot" />
+    <Content Include="public\assets\fonts\gudea\GudeaBold.svg" />
+    <Content Include="public\assets\fonts\gudea\GudeaBold.ttf" />
+    <Content Include="public\assets\fonts\gudea\GudeaBold.woff" />
+    <Content Include="public\assets\fonts\gudea\GudeaBold.woff2" />
+    <Content Include="public\assets\fonts\gudea\GudeaRegular.eot" />
+    <Content Include="public\assets\fonts\gudea\GudeaRegular.svg" />
+    <Content Include="public\assets\fonts\gudea\GudeaRegular.ttf" />
+    <Content Include="public\assets\fonts\gudea\GudeaRegular.woff" />
+    <Content Include="public\assets\fonts\gudea\GudeaRegular.woff2" />
+    <Content Include="public\assets\img\animations\deleting.gif" />
+    <Content Include="public\assets\img\animations\loading.gif" />
+    <Content Include="public\assets\img\animations\loading-animation-blue.gif" />
+    <Content Include="public\assets\img\animations\loading-animation-light.gif" />
+    <Content Include="public\assets\img\charts\delta\down.png" />
+    <Content Include="public\assets\img\charts\delta\none.png" />
+    <Content Include="public\assets\img\charts\delta\up.png" />
+    <Content Include="public\assets\img\favicons\apple-touch-icon-114x114-precomposed.png" />
+    <Content Include="public\assets\img\favicons\apple-touch-icon-120x120-precomposed.png" />
+    <Content Include="public\assets\img\favicons\apple-touch-icon-144x144-precomposed.png" />
+    <Content Include="public\assets\img\favicons\apple-touch-icon-152x152-precomposed.png" />
+    <Content Include="public\assets\img\favicons\apple-touch-icon-180x180-precomposed.png" />
+    <Content Include="public\assets\img\favicons\apple-touch-icon-57x57-precomposed.png" />
+    <Content Include="public\assets\img\favicons\apple-touch-icon-72x72-precomposed.png" />
+    <Content Include="public\assets\img\favicons\apple-touch-icon-76x76-precomposed.png" />
+    <Content Include="public\assets\img\favicons\favicon.ico" />
+    <Content Include="public\assets\img\favicons\touch-icon-192x192.png" />
+    <Content Include="public\assets\img\logos\is-logo-primary-full.jpg" />
+    <Content Include="public\assets\img\logos\is-logo-primary.png" />
+    <Content Include="public\assets\img\logos\is-logo-secondary.png" />
+    <Content Include="public\assets\img\pictographs\addapp.png" />
+    <Content Include="public\assets\img\pictographs\adddb.png" />
+    <Content Include="public\assets\img\pictographs\address_book.png" />
+    <Content Include="public\assets\img\pictographs\building_smme.png" />
+    <Content Include="public\assets\img\pictographs\card_contact.png" />
+    <Content Include="public\assets\img\pictographs\card_map.png" />
+    <Content Include="public\assets\img\pictographs\card_question.png" />
+    <Content Include="public\assets\img\pictographs\card_search_settings.png" />
+    <Content Include="public\assets\img\pictographs\card_settings.png" />
+    <Content Include="public\assets\img\pictographs\card_success.png" />
+    <Content Include="public\assets\img\pictographs\card_trigger.png" />
+    <Content Include="public\assets\img\pictographs\card_warning.png" />
+    <Content Include="public\assets\img\pictographs\cloud.png" />
+    <Content Include="public\assets\img\pictographs\document_check.png" />
+    <Content Include="public\assets\img\pictographs\lock.png" />
+    <Content Include="public\assets\img\pictographs\phone.png" />
+    <Content Include="public\assets\img\pictographs\phone_sim.png" />
+    <Content Include="public\assets\img\pictographs\search_advanced.png" />
+    <Content Include="public\assets\img\pictographs\user_male.png" />
+    <Compile Include="public\caasjslib\caasjslib.application.view.js" />
+    <Content Include="public\assets\plugins\bootstrap-toggle\bootstrap-toggle.min.css" />
+    <Content Include="public\assets\plugins\datatable\dataTables.bootstrap.min.css" />
+    <Content Include="public\assets\plugins\datatable\responsive.bootstrap.min.css" />
+    <Content Include="public\assets\plugins\datepicker\datepicker.min.css" />
+    <Content Include="public\assets\plugins\datepicker\datepicker3.min.css" />
+    <Content Include="public\assets\plugins\toastr\toastr.css" />
+    <Content Include="public\assets\plugins\validator\bootstrapValidator.min.css" />
+    <Content Include="public\stylesheets\style.styl" />
+    <Content Include="README.md" />
+    <Content Include="ServerCertificate.crt" />
+    <Content Include="templates\createjob.xml" />
+    <Content Include="views\about.jade" />
+    <Content Include="views\account\customer\viewcustomer.jade" />
+    <Content Include="views\account\forgotpassword.jade" />
+    <Content Include="views\account\login.jade" />
+    <Content Include="views\account\resetpassword.jade" />
+    <Content Include="views\account\user\createuser.jade" />
+    <Content Include="views\account\user\setpassword.jade" />
+    <Content Include="views\account\user\impersonateuser.jade" />
+    <Content Include="views\account\user\manageallusers.jade" />
+    <Content Include="views\account\user\manageuser.jade" />
+    <Content Include="views\account\user\mixins\_customers.jade" />
+    <Content Include="views\account\user\viewuser.jade" />
+    <Content Include="views\account\user\mixins\_roletype.jade" />
+    <Content Include="views\account\_forgotpasswordmodal.jade" />
+    <Content Include="views\application\manageinstance.jade" />
+    <Content Include="views\application\mixins\_buildversion.jade" />
+    <Content Include="views\application\mixins\_environmentvariable.jade" />
+    <Content Include="views\application\mixins\_plugins.jade" />
+    <Content Include="views\application\viewinstance.jade" />
+    <Content Include="views\application\_buildlogsmodal.jade" />
+    <Content Include="views\application\_buildversion.jade" />
+    <Content Include="views\application\_gitbranch.jade" />
+    <Content Include="views\application\_githublogsmodal.jade" />
+    <Content Include="views\application\_linkdatabase.jade" />
+    <Content Include="views\application\_plugins.jade" />
+    <Content Include="views\application\template\_environmenttemplate.jade" />
+    <Content Include="views\application\viewdatabase.jade" />
+    <Content Include="views\application\manageapplication.jade" />
+    <Content Include="views\application\manageapplications.jade" />
+    <Content Include="views\application\viewapplication.jade" />
+    <Content Include="views\application\_adddatabasemodal.jade" />
+    <Content Include="views\application\mixins\_buildtype.jade" />
+    <Content Include="views\application\_createdatabase.jade" />
+    <Content Include="views\application\createdatabase.jade" />
+    <Content Include="views\application\createapplication.jade" />
+    <Content Include="views\application\_addappmodal.jade" />
+    <Content Include="views\application\mixins\_databases.jade" />
+    <Content Include="views\application\mixins\_webservers.jade" />
+    <Content Include="views\application\_instancelogsmodal.jade" />
+    <Content Include="views\application\_messagemodal.jade" />
+    <Content Include="views\application\_environmentmodal.jade" />
+    <Content Include="views\application\_environmentvariablemodal.jade" />
+    <Content Include="views\contact.jade" />
+    <Content Include="views\account\customer\createcustomer.jade" />
+    <Content Include="views\account\customer\managecustomer.jade" />
+    <Content Include="views\dashboard\adminhome.jade" />
+    <Content Include="views\dashboard\home.jade" />
+    <Content Include="views\environment\createenvironment.jade" />
+    <Content Include="views\environment\manageenvironment.jade" />
+    <Content Include="views\environment\mixins\_flavors.jade" />
+    <Content Include="views\environment\mixins\_os.jade" />
+    <Content Include="views\environment\viewenvironment.jade" />
+    <Content Include="views\error.jade" />
+    <Content Include="views\includes\_confirmationmodal.jade" />
+    <Content Include="views\includes\_deletemodal.jade" />
+    <Content Include="views\layout\_nomenulayout.jade" />
+    <Content Include="views\includes\_foot.jade" />
+    <Content Include="views\includes\_footer.jade" />
+    <Content Include="views\includes\_head.jade" />
+    <Content Include="views\includes\_header.jade" />
+    <Content Include="views\includes\_modal.jade" />
+    <Content Include="views\includes\_sidemenu.jade" />
+    <Content Include="views\includes\_skippy.jade" />
+    <Content Include="views\index.jade" />
+    <Content Include="views\layout.jade" />
+    <Content Include="views\layout\_errorlayout.jade" />
+    <Content Include="views\layout\_fullwidth.jade" />
+    <Content Include="views\application\_buildtype.jade" />
+    <Content Include="views\mixins\_ButtonCTA.jade" />
+    <Content Include="views\mixins\_Chart.jade" />
+    <Content Include="views\mixins\_isLogoSmall.jade" />
+    <Content Include="views\dashboard\mixins\_dashboardcontrol.jade" />
+    <Content Include="views\application\mixins\_platforms.jade" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="apitest\" />
+    <Folder Include="api\helper\" />
+    <Folder Include="api\model\" />
+    <Folder Include="api\route\" />
+    <Folder Include="api\route\portal\" />
+    <Folder Include="api\services\" />
+    <Folder Include="api\services\ciservice\" />
+    <Folder Include="api\services\githubservice\" />
+    <Folder Include="api\services\openstackservice\" />
+    <Folder Include="api\services\rancherservice\" />
+    <Folder Include="bin\" />
+    <Folder Include="api\" />
+    <Folder Include="helper\" />
+    <Folder Include="lib\" />
+    <Folder Include="logger\" />
+    <Folder Include="model\" />
+    <Folder Include="plib\" />
+    <Folder Include="public\" />
+    <Folder Include="public\assets\" />
+    <Folder Include="public\assets\css\" />
+    <Folder Include="public\assets\fonts\" />
+    <Folder Include="public\assets\fonts\gudea\" />
+    <Folder Include="public\assets\img\" />
+    <Folder Include="public\assets\img\animations\" />
+    <Folder Include="public\assets\img\charts\" />
+    <Folder Include="public\assets\img\charts\delta\" />
+    <Folder Include="public\assets\img\favicons\" />
+    <Folder Include="public\assets\img\logos\" />
+    <Folder Include="public\assets\img\pictographs\" />
+    <Folder Include="public\assets\js\" />
+    <Folder Include="public\assets\plugins\" />
+    <Folder Include="public\assets\plugins\bootstrap-toggle\" />
+    <Folder Include="public\assets\plugins\datatable\" />
+    <Folder Include="public\assets\plugins\datepicker\" />
+    <Folder Include="public\assets\plugins\toastr\" />
+    <Folder Include="public\assets\plugins\validator\" />
+    <Folder Include="public\images\" />
+    <Folder Include="public\caasjslib\" />
+    <Folder Include="public\stylesheets\" />
+    <Folder Include="routes\" />
+    <Folder Include="templates\" />
+    <Folder Include="views\" />
+    <Folder Include="views\account\user\" />
+    <Folder Include="views\account\user\mixins\" />
+    <Folder Include="views\application\" />
+    <Folder Include="views\application\mixins\" />
+    <Folder Include="views\application\template\" />
+    <Folder Include="views\dashboard\" />
+    <Folder Include="views\dashboard\mixins\" />
+    <Folder Include="views\environment\mixins\" />
+    <Folder Include="views\includes\" />
+    <Folder Include="views\layout\" />
+    <Folder Include="views\mixins\" />
+    <Folder Include="views\account\" />
+    <Folder Include="views\environment\" />
+    <Folder Include="views\account\customer\" />
+  </ItemGroup>
+  <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
