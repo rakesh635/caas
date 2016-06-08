@@ -1,0 +1,460 @@
+﻿/* pre loading style */
+.animated-preloader-wrap {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 900;
+    background: url('../img/animations/loading-animation-light.gif') center no-repeat #fff;
+}
+
+.animated-preloader-wrap-index {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9000;
+    background: url('../img/animations/loading-animation-light.gif') center no-repeat #fff;
+}
+
+
+
+
+/* contact us cards */
+.card {
+    padding-top: 20px;
+    margin: 10px 0 20px 0;
+    background-color: rgba(214, 224, 226, 0.2);
+    border: 1px solid #D3D3D3;
+    border-top-width: 0;
+    border-bottom-width: 2px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+    .card .card-heading {
+        padding: 0 20px;
+        margin: 0;
+    }
+
+        .card .card-heading.simple {
+            font-size: 20px;
+            font-weight: 300;
+            color: #777;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .card .card-heading.image img {
+            display: inline-block;
+            width: 46px;
+            height: 46px;
+            margin-right: 15px;
+            vertical-align: top;
+            border: 0;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+        }
+
+        .card .card-heading.image .card-heading-header {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+            .card .card-heading.image .card-heading-header h3 {
+                margin: 0;
+                font-size: 14px;
+                line-height: 16px;
+                color: #262626;
+            }
+
+            .card .card-heading.image .card-heading-header span {
+                font-size: 12px;
+                color: #999999;
+            }
+
+    .card .card-body {
+        padding: 0 20px;
+        margin-top: 20px;
+    }
+
+    .card .card-media {
+        padding: 0 20px;
+        margin: 0 -14px;
+    }
+
+        .card .card-media img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+    .card .card-actions {
+        min-height: 30px;
+        padding: 0 20px 20px 20px;
+        margin: 20px 0 0 0;
+    }
+
+    .card .card-comments {
+        padding: 20px;
+        margin: 0;
+        background-color: #f8f8f8;
+    }
+
+        .card .card-comments .comments-collapse-toggle {
+            padding: 0;
+            margin: 0 20px 12px 20px;
+        }
+
+            .card .card-comments .comments-collapse-toggle a,
+            .card .card-comments .comments-collapse-toggle span {
+                padding-right: 5px;
+                overflow: hidden;
+                font-size: 12px;
+                color: #999;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+.card-comments .media-heading {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.card.people {
+    position: relative;
+    display: inline-block;
+    width: 170px;
+    height: 300px;
+    padding-top: 0;
+    margin-left: 20px;
+    overflow: hidden;
+    vertical-align: top;
+}
+
+    .card.people:first-child {
+        margin-left: 0;
+    }
+
+    .card.people .card-top {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: inline-block;
+        width: 170px;
+        height: 150px;
+        background-color: #ffffff;
+    }
+
+        .card.people .card-top.green {
+            background-color: #53a93f;
+        }
+
+        .card.people .card-top.blue {
+            background-color: #427fed;
+        }
+
+    .card.people .card-info {
+        position: absolute;
+        top: 150px;
+        display: inline-block;
+        width: 100%;
+        height: 101px;
+        overflow: hidden;
+        background: #ffffff;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+        .card.people .card-info .title {
+            display: block;
+            margin: 8px 14px 0 14px;
+            overflow: hidden;
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 18px;
+            color: #404040;
+        }
+
+        .card.people .card-info .desc {
+            display: block;
+            margin: 8px 14px 0 14px;
+            overflow: hidden;
+            font-size: 12px;
+            line-height: 16px;
+            color: #737373;
+            text-overflow: ellipsis;
+        }
+
+    .card.people .card-bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        display: inline-block;
+        width: 100%;
+        padding: 10px 20px;
+        line-height: 29px;
+        text-align: center;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+.card.hovercard {
+    position: relative;
+    padding-top: 0;
+    overflow: hidden;
+    text-align: center;
+    background-color: rgba(214, 224, 226, 0.2);
+}
+
+    .card.hovercard .cardheader {
+        background-size: cover;
+        height: 200px;
+    }
+
+    .card.hovercard .avatar {
+        position: relative;
+        top: -50px;
+        margin-bottom: -50px;
+    }
+
+        .card.hovercard .avatar img {
+            width: 100px;
+            height: 100px;
+            max-width: 100px;
+            max-height: 100px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.5);
+        }
+
+    .card.hovercard .info {
+        padding: 4px 8px 10px;
+    }
+
+        .card.hovercard .info .title {
+            margin-bottom: 4px;
+            font-size: 24px;
+            line-height: 1;
+            color: #262626;
+            vertical-align: middle;
+        }
+
+        .card.hovercard .info .desc {
+            overflow: hidden;
+            font-size: 12px;
+            line-height: 20px;
+            color: #737373;
+            text-overflow: ellipsis;
+        }
+
+    .card.hovercard .bottom {
+        padding: 0 20px;
+        margin-bottom: 17px;
+    }
+
+.sitelist li {
+    margin-top: 10px;
+}
+
+.alert-info {
+    background-color: #00AEEF;
+    border-color: #0077BE;
+    color: white;
+}
+
+
+/* Row with equal height columns */
+.row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+
+.billboard {
+    margin-top: 0 !important;
+}
+
+
+/* wizard style */
+
+.easyWizardSteps {
+    list-style: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+    .easyWizardSteps li {
+        font-size: 14px;
+        display: inline-block;
+        padding: 10px;
+        color: lightgray;
+    }
+
+        .easyWizardSteps li span {
+            font-size: 14px;
+            color: #808080;
+        }
+
+        .easyWizardSteps li.current {
+            font-size: 20px;
+            color: #0077be;
+            font-weight: 700;
+        }
+
+        .easyWizardSteps li.current span {
+            font-size: 26px;
+            color: #0077be;
+        }
+
+.easyWizardButtons {
+    overflow: hidden;
+    padding: 10px;
+}
+
+    .easyWizardButtons button, .easyWizardButtons .submit {
+        cursor: pointer;
+    }
+
+    .easyWizardButtons .prev {
+        float: left;
+        margin-bottom: 0;
+        font-weight: normal;
+        text-align: center;
+        vertical-align: middle;
+        touch-action: manipulation;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        white-space: nowrap;
+        padding: 8px 16px;
+        font-size: 15px;
+        line-height: 1.42857143;
+        border-radius: 4px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;    
+        color: #fff;
+        background-color: #00aeef;
+        border-color: #00aeef;
+    }
+
+    .easyWizardButtons .next, .easyWizardButtons .submit {
+        float: right;
+        margin-bottom: 0;
+        font-weight: normal;
+        text-align: center;
+        vertical-align: middle;
+        touch-action: manipulation;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        white-space: nowrap;
+        padding: 8px 16px;
+        font-size: 15px;
+        line-height: 1.42857143;
+        border-radius: 4px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;    
+        color: #fff;
+        background-color: #00aeef;
+        border-color: #00aeef;
+    }
+
+    .popover-title {
+        color: blue;
+        font-size: 15px;
+    }
+
+    .popover-content {
+        color: #808080;
+        font-size: 13px;
+    }
+    
+    .panel-primary {
+        background-color: #00aeef;
+    }
+    .panel-info {
+        background-color: #00a9ab;
+    }
+    .panel-warning {
+        background-color: #f28e00;
+    }
+    .panel-info > .panel-heading {
+        color: white;
+        background-color: #00a9ab;
+        border-color: #00ba9d;
+    }
+    .panel-highlight {
+        background-color: #ffcc00;
+        color: black;
+    }
+
+
+    .table-striped tbody tr.highlight td { background-color: red; }
+
+    .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+        color: black;
+        background-color: rgba(0, 174, 239, 0.35);
+    }
+
+
+
+
+    /*advanced search*/
+.dropdown.dropdown-search-lg .dropdown-menu {
+    margin-top: -1px;
+    padding: 6px 20px;
+}
+.input-group-btn .btn-group {
+    display: flex !important;
+}
+
+@media screen and (min-width: 768px) {
+    #adv-search {
+        width: 500px;
+        margin: 0 auto;
+    }
+    .dropdown.dropdown-search-lg {
+        position: static !important;
+    }
+    .dropdown.dropdown-search-lg .dropdown-menu {
+        min-width: 500px;
+    }
+}
+
+.list-group-item:hover {
+        color: black;
+        background-color: rgba(0, 174, 239, 0.35);
+}
+
+/*   flat billboard   */
+ 
+.bb-flat {
+    padding: 25px 0 0 0 !important;   
+    position: relative;
+    color: #fff;
+    background-color: #0077be;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+

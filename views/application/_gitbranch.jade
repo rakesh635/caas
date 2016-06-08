@@ -1,0 +1,5 @@
+﻿select#ddlgitbranch.form-control(data-toggle='tooltip', title='Select a Git Hub branch',name='ddlgitbranch')
+  option(value='') Select GitHub Branch
+   if(gitbranch)
+     each val in gitbranch
+         option(selected,value=val) #{val}

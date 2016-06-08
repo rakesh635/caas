@@ -1,0 +1,141 @@
+﻿extends ../layout/_fullwidth.jade
+include ./mixins/_platforms.jade
+include ./mixins/_databases.jade
+include ./mixins/_webservers.jade
+block pageTitle
+  title ISCP | Create Application
+block pageStyle
+
+block pageHeading
+  h1 Internet Solutions Styleguide
+
+block pageIntro
+  
+  
+block pageContent  
+ h1#overview.page-header Create Application Service         
+            a.btn.btn-color_3.pull-right(href='/application/manage/all')
+                i.fa.fa-arrow-left(aria-hidden='true') 
+                |    Back
+      .row
+        .col-sm-12(role='main')          
+            form#frmcreateapplication.form-horizontal(method='POST',action='/application/createapplication')
+              .form-group
+                 .col-md-6.col-md-offset-3
+                    #messages     
+              .form-group
+                label.col-md-3.control-label(for='txtappname') Application Title
+                .col-md-6
+                  input#txtappname.form-control(data-toggle='tooltip', title='Enter your application title',type='text', placeholder='Application Title',name='txtappname',required,maxlength='20')         
+              .form-group
+                label.col-md-3.control-label(for='txtappid') Application Name
+                .col-md-6
+                  input#txtappid.form-control(data-toggle='tooltip', title='Enter your application name',type='text', placeholder='Application Name',name='txtappid',required,maxlength='10')
+                  span#applicationdomainlabel.text-success 
+             
+              .form-group
+                    label.col-md-3.control-label Description
+                    .col-md-6
+                      textarea.form-control( data-toggle='tooltip', title='Enter a description',placeholder='Description',name='txtappdescription',maxlength='200',rows='4',style='resize:none')
+              .form-group
+                label.col-md-3.control-label(for='ddlappplatform') Platform
+                .col-md-6
+                  select#ddlappplatform.form-control(data-toggle='tooltip', title='Select a platform',name='ddlappplatform',required) 
+                         +platforms(appplatforms)
+                  span#hbappversion.help-block.hide
+                    | Version: 
+                    span#spnappversion     
+              .form-group#fg-plugins.hide
+                label.col-md-3.control-label Choose Plugins [Optional]
+                .col-md-6#ddlplugins
+                   include _plugins.jade                  
+              .form-group#fg-buildtool
+                label.col-md-3.control-label(for='ddlbuildtype') Build Tool
+                .col-md-6#buildtypes
+                   include _buildtype.jade    
+               .form-group#commanddiv.hide
+                label.col-md-3.control-label(for='txtcommand') Build Command
+                .col-md-6
+                  input#txtcommand.form-control(type='text', placeholder='Command',name='txtcommand',maxlength='1000') 
+              .form-group#divtargetfolder.hide
+                label.col-md-3.control-label(for='txttargetfolder') Target Folder
+                .col-md-6
+                  input#txttargetfolder.form-control(data-toggle='tooltip', title='Enter your first name',type='text', placeholder='Target Folder',name='txttargetfolder',maxlength='1000')   
+              .form-group
+                label.col-md-3.control-label(for='ddlwebserver') Web server
+                .col-md-6
+                  select#ddlwebserver.form-control(data-toggle='tooltip', title='Select a Web Server',name='ddlwebserver')
+                    +webservers(webservers)
+                  span#hbwsversion.help-block.hide
+                    | Version: 
+                    span#spnwsversion                         
+              .form-group
+                label.col-md-3.control-label(for='txtappusername') GitHub User Name
+                .col-md-6
+                 input#txtappusername.form-control(data-toggle='tooltip', title='Enter your Github user name',type='text', name='txtappusername', placeholder='GitHub User Name',maxlength='40')
+              .form-group
+                label.col-md-3.control-label(for='txtapppassword') GitHub Password
+                .col-md-6
+                 input#txtapppassword.form-control(data-toggle='tooltip', title='Enter your git hub password',type='password', name='txtapppassword', placeholder='GitHub Password',maxlength='40')
+              .form-group
+                label.col-md-3.control-label(for='txtappgiturl') GitHub Url
+                .col-md-6
+                  input#txtgiturl.form-control(data-toggle='tooltip', title='Enter your githuburl',type='text', placeholder='GitHub Url',name='txtappgiturl',required,maxlength='2000')
+               
+               .form-group
+                  label.col-md-3.control-label GitHub Branch
+                  .col-md-6#gitbranch
+                     include _gitbranch.jade  
+                  .col-md-3
+                   button.btn.btn-color_1(type='button',id='btngetbranches')
+                    i.fa.fa-check
+                    |  Get Branch
+              .form-group.hide
+                label.col-md-3.control-label(for='ddldatabases') Link Database
+                .col-md-6#linkdatabase
+                    include _linkdatabase.jade  
+                .col-md-3
+                   a(href='#',data-toggle='tooltip',title='Add Database',id='a_createdatabase')
+                     i.fa.fa-plus-circle.fa-2x    
+               .form-group
+                label.col-md-3.control-label(for='txtappgiturl') Environment Variables
+                .col-md-6
+                  a#btnenvironmentvariable.btn.btn-primary(href='#',data-toggle='tooltip',title='Add Environment variable',)
+                    i.fa.fa-plus-circle  
+               .form-group#environment-variables-fg.hide                     
+                    label.col-md-3.control-label 
+                    .col-md-6#environment-variables 
+              .col-md-6.col-md-offset-3.text-center
+                 hr
+                 a#btn-clear.btn.btn-default(href='/application/manage/application')
+                   i.fa.fa-remove
+                   |  Cancel
+                 |     
+                 button.btn.btn-color_1(type='submit',id='btncreateapp')
+                   i.fa.fa-check
+                   |  Submit
+                 hr         
+             
+              input(type='hidden',name='hdnapptype',value='application')
+              input(type='hidden',value='',name='hndenvironmentvariables')  
+              input(type='hidden',value='',name='hdnplugins')   
+              input(type='hidden',value='0',name='hdngetbranch')   
+         include ./template/_environmenttemplate.jade
+        
+block modals
+ include _environmentvariablemodal.jade 
+ include _messagemodal.jade
+ include _adddatabasemodal.jade
+block pageScript     
+    script(src="/caasjslib/caasjslib.application.view.js" type="text/javascript")
+    script(src="/caasjslib/caasjslib.application.common.js" type="text/javascript")
+    script(src="/caasjslib/caasjslib.application.eventhandler.js" type="text/javascript")
+    script(src="/caasjslib/caasjslib.application.viewmodel.js" type="text/javascript")
+    script(type='text/javascript').
+      $(function(){
+         var appview=caasjslib.application.view;
+           appview.CreateApplicationInit('appcreate');  
+           $("#frmcreatedatabase").submit(function(ev){ev.preventDefault();});
+       });
+      
+    

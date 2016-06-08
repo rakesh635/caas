@@ -1,0 +1,97 @@
+﻿extends ../layout/_fullwidth.jade
+include ./mixins/_flavors.jade
+include ./mixins/_os.jade
+block pageTitle
+  title ISCP | Create Environment
+block pageStyle
+
+block pageContent
+ .container-fluid
+  .row
+   .col-md-12.col-sm-12
+     h1 New Environment
+               a.btn.btn-color_3.pull-right(href='/environment/manage') 
+                  i.fa.fa-arrow-left(aria-hidden='true') 
+                  |    Back
+  .row
+      p.lead.col-md-offset-5.text-danger #{error} 
+      form#form-env.form-horizontal(action='/environment/create' ,method='post')
+        .form-group
+           .col-md-6.col-md-offset-3
+             #messages
+        .form-group.col-md-12
+          label.col-sm-3.control-label(for='environmenttitle') Environment Title
+          .col-sm-6
+            input#env-title.form-control(data-toggle='tooltip', title='Enter your Environment Title',type='text', placeholder='Environment Title', name='environmenttitle', required='',maxlength='10')
+        .form-group.col-md-12
+          label.col-sm-3.control-label(for='environmentname') Environment Name
+          .col-sm-6
+            input#env-name.form-control(data-toggle='tooltip', title='Enter your Environment name',type='text', placeholder='Environment Name', name='environmentname', required='',maxlength='5')
+        .form-group.col-md-12
+          label.col-sm-3.control-label(for='description') Description
+          .col-sm-6
+            textarea#txtar-description.form-control(data-toggle='tooltip', title='Enter a small description of your environment',placeholder='Description', name='description',maxlength='200',rows='4',style='resize:none')
+        .form-group.col-md-12
+          label.col-md-3.control-label(for='ddlos') OS
+          .col-md-6
+            select#ddlos.form-control(data-toggle='tooltip', title='Select a Operating System',name='ddlos',required) 
+                   +os(os)
+        .form-group.col-md-12
+          label.col-md-3.control-label(for='ddlproduct') Flavors
+          .col-md-6
+            input#hdn-billingid(type='hidden', name='billingid')
+            select#ddlflavors.form-control(data-toggle='tooltip', title='Select a Flavour',name='ddlflavors',required) 
+                   +flavors(flavors)
+        #cost-details.hide
+         .form-group.col-md-12
+          .col-md-6.col-md-offset-3.text-center
+           .panel.panel-default
+             .panel-heading.text-left
+              strong COST DETAILS     
+             .panel-body
+                table.table.table-striped.table-bordered.table-responsive.table-hover
+                 thead
+                  tr
+                   th OS:
+                   th CPU
+                   th RAM
+                   th STORAGE
+                   th Total Cost (per month)
+                 tbody
+                  tr
+                   td 
+                      span#spn-os.control-label.pull-left
+                   td 
+                      span#spn-cpu.control-label.pull-left
+                   td 
+                      span#spn-ram.control-label.pull-left
+                   td 
+                      span#spn-storage.control-label.pull-left
+                   td 
+                      h4#spn-total.pull-left permonth   
+ 
+          .col-md-6.col-md-offset-3.text-center
+              hr
+              .checkbox
+                input#chkagree(type='checkbox', name='chkagree')
+                label I Agree the Terms & Conditions
+        .form-group.col-md-12
+         .col-md-6.col-md-offset-3.text-center
+           hr
+           a.btn.btn-default(href='/environment/manage')
+             i.fa.fa-times
+             |  Cancel
+           |      
+           button.btn.btn-color_1(type='submit')
+             i.fa.fa-check
+             |  Submit
+           hr
+block pageScript
+  script(src="../../caasjslib/caasjslib.environment.view.js" type="text/javascript")
+  script(src="../../caasjslib/caasjslib.environment.eventhandler.js" type="text/javascript")
+  script.
+    $(function () {
+     var view = caasjslib.environment.view;
+     view.CreateEnvironmentInit();
+    });
+ 

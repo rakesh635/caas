@@ -1,0 +1,141 @@
+﻿#SwitchAccountModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+   .modal-dialog(role='document')
+     .modal-content
+       .modal-header
+         button.close(type='button', data-dismiss='modal', aria-label='Close')
+           span(aria-hidden='true') ×
+         h3#myModalLabel.modal-title User Identification
+       .modal-body
+         .row
+           .col-md-8
+             i.fa.fa-user.text-success
+             |  Logged In As: 
+             strong Richard Levine
+             .text-small
+               i.fa.fa-thumb-tack.text-color_5
+               strong Internet Solutions Bryanston
+               | .
+         hr
+         #switch-modal-user-content
+           div
+             ul.nav.nav-tabs(role='tablist')
+               li.active(role='presentation')
+                 a(href='#switchacc', aria-controls='switchacc', role='tab', data-toggle='tab')
+                   span.text-color_5 Switch Account
+             .tab-content
+               #switchacc.tab-pane.active(role='tabpanel')
+                 table.table.table-hover.table-imp
+                   tr
+                     td.col-md-10
+                       strong INTERNET SOLUTIONS - BRYANSTON
+                       div 1-9KFPOY
+                     td.col-md-2
+                       span.pull-right(style='font-size: 28px; color: #CBDCDE')
+                         i.fa.fa-arrow-circle-o-right(style='color: #cbdcde')
+                   tr
+                     td.col-md-10
+                       strong INTERNET SOLUTIONS - DURBAN
+                       div 1-9KFPOY
+                     td.col-md-2
+                       span.pull-right(style='font-size: 28px; color: #CBDCDE')
+                         i.fa.fa-arrow-circle-o-right(style='color: #cbdcde')
+                   tr
+                     td.col-md-10
+                       strong INTERNET SOLUTIONS - CAPE TOWN
+                       div 1-9KFPOY
+                     td.col-md-2
+                       span.pull-right(style='font-size: 28px; color: #CBDCDE')
+                         i.fa.fa-arrow-circle-o-right(style='color: #cbdcde')
+                   tr
+                     td.col-md-10
+                       strong INTERNET SOLUTIONS - BLOEMFONTIEN
+                       div 1-9KFPOY
+                     td.col-md-2
+                       span.pull-right(style='font-size: 28px; color: #CBDCDE')
+                         i.fa.fa-arrow-circle-o-right(style='color: #cbdcde')
+       .modal-footer
+         button.btn.btn-default.pull-left(type='button', data-dismiss='modal') Close
+         button.btn.btn-primary(type='button') Apply
+#SwitchUserModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') ×
+          h4#myModalLabel.modal-title User Identification
+        .modal-body
+          .row
+            .col-md-6
+              i.fa.fa-user.text-success
+              |  Logged In As: 
+              strong Richard Levine
+              .text-small
+                i.fa.fa-thumb-tack.text-color_5
+                strong Internet Solutions Bryanston
+                | .
+            .col-md-6
+              i.fa.fa-users.text-color_2
+              |  Impersonating: 
+              strong Cole Abrahams
+              .text-small
+                i.fa.fa-arrow-right.text-color_9
+                strong Pearsons Holding Pty Ltd Cape Town
+                | .
+          hr
+          #switch-modal-account-content
+            div
+              // Nav tabs
+              ul.nav.nav-tabs(role='tablist')
+                li.active(role='presentation')
+                  a(href='#switchuser', aria-controls='switchuser', role='tab', data-toggle='tab')
+                    span.text-success Switch User
+              .tab-content
+                #switchuser.tab-pane.active(role='tabpanel')
+                  .sheet-inner.ng-scope
+                    .well
+                      form.form-inline.ng-valid.ng-dirty(role='form')
+                        .form-group
+                          input.form-control.ng-valid.ng-dirty(type='text', placeholder='Account Name or ID', value='Pearson', style='width:420px')
+                        .form-group
+                          button.btn.btn-primary.ng-pristine.ng-valid(type='submit', ng-init='searchClicked=false', ng-model='searchClicked', ng-click='modalfunctions.accountSearch(); searchClicked=true;') Search
+                    #divSearchResults(ng-show='modaldata.impersonationAccounts')
+                      table#accounts.table.table-striped
+                        tbody
+                          tr.ng-scope(ng-repeat='account in modaldata.pager.pages[modaldata.pager.currentPageNumber]', ng-click='modalfunctions.viewContacts(account)', style='cursor: pointer')
+                            td
+                              strong.ng-binding   PEARSON HOLDINGS - UPLOAD
+                              .ng-binding 1-3F37S11
+                            td(style='width:15px;')
+                              span.pull-right(style='font-size: 28px; color: #CBDCDE')
+                                i.icon-circle-arrow-right  
+                          tr.ng-scope(ng-repeat='account in modaldata.pager.pages[modaldata.pager.currentPageNumber]', ng-click='modalfunctions.viewContacts(account)', style='cursor: pointer')
+                            td
+                              strong.ng-binding   PEARSON HOLDINGS SOUTHERN AFRICA PTY LTD - CAPE TOWN
+                              .ng-binding 1-GZ6ESZ
+                            td(style='width:15px;')
+                              span.pull-right(style='font-size: 28px; color: #CBDCDE')
+                                i.icon-circle-arrow-right  
+                          tr.ng-scope(ng-repeat='account in modaldata.pager.pages[modaldata.pager.currentPageNumber]', ng-click='modalfunctions.viewContacts(account)', style='cursor: pointer')
+                            td
+                              strong.ng-binding   PEARSON - JOHANNESBURG
+                              .ng-binding 1-744DHZ
+                            td(style='width:15px;')
+                              span.pull-right(style='font-size: 28px; color: #CBDCDE')
+                                i.icon-circle-arrow-right  
+                          tr.ng-scope(ng-repeat='account in modaldata.pager.pages[modaldata.pager.currentPageNumber]', ng-click='modalfunctions.viewContacts(account)', style='cursor: pointer')
+                            td
+                              strong.ng-binding   PEARSON HIGH SCHOOL - PORT ELIZABETH
+                              .ng-binding 1-78XFIN
+                            td(style='width:15px;')
+                              span.pull-right(style='font-size: 28px; color: #CBDCDE')
+                                i.icon-circle-arrow-right  
+                          tr.ng-scope(ng-repeat='account in modaldata.pager.pages[modaldata.pager.currentPageNumber]', ng-click='modalfunctions.viewContacts(account)', style='cursor: pointer')
+                            td
+                              strong.ng-binding   PEARSON SHARED SERVICES LTD - UK
+                              .ng-binding 1-E34SMO
+                            td(style='width:15px;')
+                              span.pull-right(style='font-size: 28px; color: #CBDCDE')
+                                i.icon-circle-arrow-right  
+        .modal-footer
+          button.btn.btn-default.pull-left(type='button', data-dismiss='modal') Close
+          button.btn.btn-primary(type='button') Apply

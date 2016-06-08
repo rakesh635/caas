@@ -1,0 +1,21 @@
+﻿#applicationmodal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='applicationmodallabel')
+      .modal-dialog(role='document')
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
+            h4#applicationmodallabel.modal-title Application Types
+          .modal-body
+           .row
+             .col-sm-6
+               a.thumbnail.btn-default(href='/application/createapplication',style='text-decoration:none')
+                img(src='/assets/img/pictographs/addapp.png',height='30px',width:'100px')
+                .caption.text-center
+                  h5 Application
+             .col-sm-6
+               a.thumbnail.btn-default(href='/application/createdatabase',style='text-decoration:none')
+                img(src='/assets/img/pictographs/adddb.png',height='30px',width:'100px')
+                .caption.text-center
+                  h5 Database   
+          .modal-footer
+            button.btn.btn-default(type='button', data-dismiss='modal') Close

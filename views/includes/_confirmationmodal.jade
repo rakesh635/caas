@@ -1,0 +1,16 @@
+﻿#myConfirmModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+      .modal-dialog.modal-sm(role='document')
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
+            h4#confirm-title.modal-title.text-primary Confirmation
+          .modal-body
+            input#hdn-confirmid(type='hidden', name='deleteid')
+            input#hdn-parentid(type='hidden', name='parentid')
+            p#confirmtext.lead Are you sure?
+            p#p-confirmtxt
+          .modal-footer
+            #deletebtndiv
+             button.btn.btn-default.pull-left(type='button', data-dismiss='modal') Close
+             button#btn-confirm.btn.btn-primary(type='button', data-dismiss='modal') Ok

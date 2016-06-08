@@ -1,0 +1,60 @@
+﻿extends ../../layout/_fullwidth.jade
+
+block pageTitle
+  title ISCP | Manage Customer
+block pageStyle
+    link(rel="stylesheet" href="/assets/plugins/datatable/dataTables.bootstrap.min.css")
+    link(rel="stylesheet" href="/assets/plugins/datatable/responsive.bootstrap.min.css")
+
+block pageContent
+    .row
+      .col-sm-12
+        h1 Customer Management
+        .col-md-8.col-sm-12
+          p.lead
+        .col-md-4.col-sm-12.text-center
+          p.lead.pull-right
+            a.btn.btn-color_3(href='/customer/create') New Customer +
+          p.lead.pull-right
+    .row
+      .col-md-10.col-md-offset-1.col-sm-12
+        .panel.panel-default
+          .panel-heading
+            .row
+              .col-lg-3.text-center
+                | Currently viewing Customers
+                br
+                strong
+              .col-lg-7.text-center
+                .input-group
+                  input#adv-search-customer.form-control(type='text', placeholder='Search for Customers')
+                  .input-group-btn
+                    button.btn.btn-default(type='button', aria-label='Help')
+                      span.glyphicon.glyphicon-search
+              .col-lg-2.text-center
+                a#btn-refresh.btn.btn-color_4
+                  i.fa.fa-refresh(aria-hidden='true') 
+                  |     Refresh
+
+                  
+          .panel-body(style='text-align: left;')
+            table#tbl-managecustomer.table.table-striped.table-bordered.table-responsive.table-hover.no-footer.table-th-info(role='grid')
+block modals
+    include ../../includes/_deletemodal.jade
+    include ../../includes/_confirmationmodal.jade
+block pageScript
+  script(src="/assets/plugins/datatable/jquery.dataTables.min.js" type="text/javascript")
+  script(src="/assets/plugins/datatable/dataTables.bootstrap.min.js" type="text/javascript")
+  script(src="/assets/plugins/datatable/dataTables.responsive.min.js" type="text/javascript")
+  script(src="/assets/plugins/datatable/responsive.bootstrap.min.js" type="text/javascript")
+  script(src="/assets/plugins/datatable/fnReloadAjax.js" type="text/javascript")
+  script(src="/assets/plugins/datatable/date-euro.js" type="text/javascript")
+
+  script(src="/caasjslib/caasjslib.customer.view.js" type="text/javascript")
+  script(src="/caasjslib/caasjslib.customer.eventhandler.js" type="text/javascript")
+  script(src="/caasjslib/caasjslib.customer.viewmodel.js" type="text/javascript")
+  script.
+    $(function () {
+     var view = caasjslib.customer.view;
+     view.ManageCustomerInit();
+    });

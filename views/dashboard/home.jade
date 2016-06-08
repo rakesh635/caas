@@ -1,0 +1,21 @@
+﻿extends ../layout/_fullwidth.jade
+
+include mixins/_dashboardcontrol.jade
+block pageTitle
+  title ISCP | Home
+
+block pageContent
+ .container-fluid
+   h1
+      span#spn-title Dashboard
+   br  
+  .row
+    div.row.equal-height-panels
+      .col-lg-12
+      div.col-xs-4
+           +dashoboardControl("color_6", "./assets/img/pictographs/card_trigger.png", "Application Services", "View More", "/application/manage/application","fa fa-list-alt fa-5x",'red') #{application} 
+         div.col-xs-4
+           +dashoboardControl("color_6", "./assets/img/pictographs/card_trigger.png", "Database Services", "View More", "/application/manage/database","fa fa-database fa-5x",'orange') #{database}
+         div.col-xs-4
+           +dashoboardControl("color_6", "./assets/img/pictographs/card_trigger.png", "Instances", "View More", "/application/manageinstance","fa fa-rocket fa-5x",'green') #{instance}
+       

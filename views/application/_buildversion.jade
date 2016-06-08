@@ -1,0 +1,4 @@
+﻿select#ddlbuildversion.form-control(name='ddlbuildversion')
+   if(buildversions)
+     each val in buildversions
+          option(value=val.app_build_id) V.0.0.#{val.build_version}

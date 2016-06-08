@@ -1,0 +1,81 @@
+﻿.row
+  .col-sm-12(role='main')       
+            form#frmcreatedatabase.form-horizontal
+                .form-body
+                  .form-group
+                   .col-md-6.col-md-offset-3
+                     #messages
+                  .form-group
+                    label.col-md-3.control-label Database Title
+                    .col-md-6
+                      input#txtdatabasename.form-control(data-toggle='tooltip', title='Enter your Database Title',type='text', placeholder='Database Title',name='txtdatabasename',maxlength='20')
+                  .form-group
+                    label.col-md-3.control-label Database Name
+                    .col-md-6
+                      input#txtdatabaseid.form-control(data-toggle='tooltip', title='Enter your Database name',type='text', placeholder='Database Name',name='txtdatabaseid',maxlength='10')
+                      span#applicationdomainlabel.text-success
+                  .form-group
+                    label.col-md-3.control-label Description
+                    .col-md-6
+                      textarea#txtappdescription.form-control( data-toggle='tooltip', title='Enter a Description',placeholder='Description',name='txtappdescription',maxlength='200',rows='4',style='resize:none')
+                  .form-group
+                    label.col-md-3.control-label(for='txtdatabaseusername') Database User Name
+                    .col-md-6
+                     input#txtdatabaseusername.form-control(data-toggle='tooltip', title='Enter your Database User name',type='text', name='txtdatabaseusername', placeholder='Database User Name',maxlength='40')
+                  .form-group
+                    label.col-md-3.control-label(for='txtdatabasepassword') Database Password
+                    .col-md-6
+                     input#txtdatabasepassword.form-control(data-toggle='tooltip', title='Enter your Database Password',type='password', name='txtdatabasepassword', placeholder='Database Password',maxlength='40')
+                  .form-group
+                    label.col-md-3.control-label Platform
+                    .col-md-6
+                       select#ddlplatform.form-control(data-toggle='tooltip', title='Select a platform',name='ddlplatform') 
+                         +platforms(dbplatforms)   
+                    label.col-md-2.label-value.dbversion.hide
+                      strong Version: 
+                      span.dbversionvalue                       
+                  .form-group
+                    label.col-md-3.control-label(for='txtdbusername') GitHub User Name
+                    .col-md-6
+                     input#txtdbusername.form-control(data-toggle='tooltip', title='Enter your GitHub username',type='text', name='txtdbusername', placeholder='GitHub User Name',maxlength='40')
+                  .form-group
+                    label.col-md-3.control-label(for='txtdbpassword') GitHub Password
+                    .col-md-6
+                     input#txtdbpassword.form-control(data-toggle='tooltip', title='Enter your Github Password',type='password', name='txtdbpassword', placeholder='GitHub Password',maxlength='40')
+                  .form-group
+                    label.col-md-3.control-label GitHub Url
+                    .col-md-6
+                      input#txtdbgiturl.form-control(data-toggle='tooltip', title='Enter your Github Url',type='text', placeholder='GitHub Url',name='txtdbgiturl',maxlength='2000')
+                  .form-group
+                    label.col-md-3.control-label GitHub Branch
+                    .col-md-6#gitdbbranch
+                       include _gitbranch.jade 
+                    .col-md-3
+                       button.btn.btn-color_1(type='button',id='btndbgetbranches')
+                        i.fa.fa-check
+                         |  Get Branch
+                  .form-group
+                    label.col-md-3.control-label Launch Script
+                    .col-md-6
+                      input#txtlaunchscript.form-control(data-toggle='tooltip', title='Enter Launch Script',type='text', placeholder='Launch Script',name='txtlaunchscript',maxlength='200')  
+                   .form-group
+                     label.col-md-3.control-label Environment Variables
+                     .col-md-6
+                       button#btndbenvironmentvariable.btn.btn-primary(type='button')
+                         i.fa.fa-plus-circle  
+                   .form-group#db-environment-variables-fg.hide                     
+                      label.col-md-3.control-label 
+                      .col-md-6#db-environment-variables 
+                   .col-md-6.col-md-offset-3.text-center
+                    hr
+                    button#btndbcancel.btn.btn-default(type='button')
+                      i.fa.fa-remove
+                      |  Cancel
+                    |     
+                    button#btncreatedatabase.btn.btn-color_1(type='button')
+                      i.fa.fa-check
+                      |  Submit
+                    hr                       
+                    
+                  input#hnddbenvironmentvariables(type='hidden',value='',name='hnddbenvironmentvariables')        
+                    

@@ -1,0 +1,64 @@
+﻿extends ../layout/_fullwidth.jade
+
+block pageTitle
+  title ISCP | Manage Application
+block pageStyle
+    link(rel="stylesheet" href="/assets/plugins/datatable/dataTables.bootstrap.min.css")
+    link(rel="stylesheet" href="/assets/plugins/datatable/responsive.bootstrap.min.css")
+   
+block pageContent
+    .row
+      .col-sm-12
+        h1 Application Management
+        .col-md-8.col-sm-12
+          p.lead
+        .col-md-4.col-sm-12.text-center
+          p.lead.pull-right
+            a.btn.btn-color_2(href='#',id='addapplication') New Application +
+    .row
+      .col-md-12.col-sm-12
+        .panel.panel-default
+          .panel-heading
+            .row
+              .col-lg-6.text-center
+                | Currently viewing applications
+                br
+                strong
+              .col-lg-6.text-center
+                .input-group
+                  input#adv-search-input.form-control(type='text', placeholder='Search for applications')
+                  .input-group-btn
+                    button.btn.btn-default(type='button', aria-label='Help')
+                      span.glyphicon.glyphicon-search
+          .panel-body(style='text-align: left;')
+            div.bg-green 
+             strong Application
+            table#tbl-application.table.table-striped.table-bordered.table-responsive.table-hover.no-footer.table-th-info.app-table(role='grid')
+            
+            div.bg-green 
+             strong Database
+            table#tbl-database.table.table-striped.table-bordered.table-responsive.table-hover.no-footer.table-th-info.app-table(role='grid')
+
+            div.bg-green 
+             strong Web Application
+            table#tbl-webapplication.table.table-striped.table-bordered.table-responsive.table-hover.no-footer.table-th-info.app-table(role='grid')
+            
+            
+block modals
+   include ../includes/_deletemodal.jade  
+   include ./_addappmodal.jade 
+
+block pageScript  
+    script(src="/assets/plugins/datatable/jquery.dataTables.min.js" type="text/javascript")
+    script(src="/assets/plugins/datatable/dataTables.bootstrap.min.js" type="text/javascript")
+    script(src="/assets/plugins/datatable/dataTables.responsive.min.js" type="text/javascript")
+    script(src="/assets/plugins/datatable/responsive.bootstrap.min.js" type="text/javascript")
+
+    script(src="/caasjslib/caasjslib.ajaxcall.js" type="text/javascript")
+    script(src="/caasjslib/caasjslib.application.view.js" type="text/javascript")
+    script(src="/caasjslib/caasjslib.application.eventhandler.js" type="text/javascript")
+    script(type='text/javascript').
+      $(function(){
+         var appview=caasjslib.application.view;
+           appview.ManageApplicationInit();  
+       });

@@ -1,0 +1,127 @@
+﻿extends ../layout/_fullwidth.jade
+include ./mixins/_platforms.jade
+include ./mixins/_databases.jade
+include ./mixins/_webservers.jade
+include ./mixins/_buildtype.jade
+include ./mixins/_environmentvariable.jade
+include ./mixins/_plugins.jade
+block pageTitle
+  title Home | Internet Solutions Styleguide
+block pageContent 
+ .container-fluid    
+     h1#overview.page-header
+      span#spn-title View Application
+      span.pull-right  
+      if appdata.build_status === 'Created'
+       button#btneditapp.btn.btn-color_4.pull-right(type='button') 
+         i.fa.fa-pencil(aria-hidden='true') 
+         |   Update Application
+      span.pull-right  
+      a.btn.btn-color_3.pull-right(href='/application/manage/all') 
+         i.fa.fa-arrow-left(aria-hidden='true') 
+         |    Back
+
+    .row
+      .col-sm-12(role='main')          
+        form#frmcreateapplication.form-horizontal(method='POST',action='/application/updateapplication/#{appdata.application_id}/app')
+          .form-group
+            label.col-md-3.control-label(for='txtappname') Application Title
+            .col-md-6
+              input#txtappname.form-control(type='text', name='txtappname',disabled,value='#{appdata.application_display_name}')
+          .form-group
+            label.col-md-3.control-label(for='txtappid') Application Name
+            .col-md-6
+              input#txtappid.form-control(type='text', ,name='txtappid',disabled,value='#{appdata.application_name}')
+          .form-group
+            label.col-md-3.control-label(for='txtdesc') Description
+            .col-md-6
+              textarea#txtdesc.form-control(name='txtdesc',disabled,rows=4) #{appdata.description}
+          .form-group
+            label.col-md-3.control-label(for='ddlappplatform') Platform
+            .col-md-6
+              select#ddlappplatform.form-control(name='ddlappplatform',disabled) 
+                     +platforms(appplatforms)
+              span#hbappversion.help-block.hide
+                | Version: 
+                span#spnappversion  
+           if(appplugins.length > 0)         
+             .form-group#fg-plugins
+               label.col-md-3.control-label(for='mddlplugins') Plugins
+               .col-md-6
+                 select#mddlplugins.form-control(multiple='multiple',disabled)   
+                     +plugins(appplugins) 
+          .form-group#fg-buildtool
+            label.col-md-3.control-label(for='ddlbuildtype') Build Tool
+            .col-md-6#buildtypes
+               select#ddlbuildtype.form-control(name='ddlbuildtype', disabled)  
+                 +buildtypes(buildtypes)  
+          .form-group#commanddiv
+            label.col-md-3.control-label(for='txtcommand') Build Command
+            .col-md-6
+              input#txtcommand.form-control(type='text', name='txtcommand',disabled,value='#{appdata.command}') 
+          .form-group
+            label.col-md-3.control-label(for='ddlappplatform') Web server
+            .col-md-6
+              select#ddlwebserver.form-control(name='ddlwebserver',disabled)
+                +webservers(webservers)
+              span#hbwsversion.help-block.hide
+                | Version: 
+                span#spnwsversion 
+          .form-group
+            label.col-md-3.control-label(for='txtbuildstatus') Build Status
+            .col-md-6
+              input#txtappname.form-control(type='text', name='txtbuildstatus',disabled,value='#{appdata.build_status}')                             
+          .form-group#divtargetfolder.hide
+            label.col-md-3.control-label(for='txttargetfolder') Target Folder
+            .col-md-6
+              input#txttargetfolder.form-control(type='text', name='txttargetfolder') 
+           if appdata.isrepo_public[0]=="0"
+           .form-group
+            label.col-md-3.control-label(for='txtappusername') GitHub User Name
+            .col-md-6
+             input#txtappusername.form-control(type='text', name='txtappusername',value='#{appdata.repo_username}',disabled)
+          .form-group
+            label.col-md-3.control-label(for='txtappgiturl') GitHub Url
+            .col-md-6
+              input#txtgiturl.form-control(type='text', name='txtappgiturl',disabled,value='#{appdata.repo_url}')
+          .form-group
+            label.col-md-3.control-label(for='txtselectedbranch') GitHub Branch
+            .col-md-6
+              input#txtbranch.form-control(type='text',name='txtselectedbranch',disabled,value='#{appdata.branchname}')
+          .form-group#fg_linkeddb
+            label.col-md-3.control-label(for='ddlplatform') Link Database
+            .col-md-6
+              select#ddldatabases.form-control(name='ddldatabases',disabled)
+                +databases(databaseapps)
+            .col-md-3.hide
+               a(href='#',data-toggle='tooltip',title='Add Database',id='a_createdatabase')
+                 i.fa.fa-plus-circle.fa-2x    
+          if(environmentvariables.length > 0) 
+               .form-group#environment-variables-fg                     
+                 label.col-md-3.control-label Environment Variables
+                 .col-md-6#environment-variables   
+                   +environmentvariable(environmentvariables)    
+              #applicationaction.col-md-6.col-md-offset-3.text-center.hide
+             hr
+             a#btn-clear.btn.btn-default(href='/application/manage/application')
+               i.fa.fa-remove
+               |  Cancel
+             |     
+             button.btn.btn-color_1(type='submit',id='btnupdateapplication')
+               i.fa.fa-check
+               |  Update
+             hr       
+block modals
+ include _environmentvariablemodal.jade 
+  
+block pageScript     
+    script(src="/caasjslib/caasjslib.application.view.js" type="text/javascript")
+    script(src="/caasjslib/caasjslib.application.common.js" type="text/javascript")
+    script(src="/caasjslib/caasjslib.application.eventhandler.js" type="text/javascript")
+    script(type='text/javascript').
+      $(function(){
+         var appview=caasjslib.application.view;
+           appview.ViewApplicationInit('appview');  
+       });
+      
+    

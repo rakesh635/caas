@@ -1,0 +1,10 @@
+﻿mixin platforms(items)
+  option(value='') Select Platform
+   each val in items     
+        if pagemode=="view" || pagemode=="edit"       
+          if appdata.platform_id== val.id    
+              option(selected,value=val.id) #{val.name} ( V#{val.platform_version})
+          else 
+              option(value=val.id) #{val.name} ( V#{val.platform_version})
+        else   
+         option(value=val.id) #{val.name} ( V#{val.platform_version})

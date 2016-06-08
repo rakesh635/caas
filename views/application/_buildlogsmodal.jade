@@ -1,0 +1,23 @@
+﻿#buildlogsmodal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='messagemodalLabel')
+    .modal-dialog(role='document')
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
+            h4.modal-title Build History:
+             | 
+             span.spn-applicationname
+          .modal-body
+            table.table.table-striped.table-bordered.table-responsive.table-hover
+             thead
+              tr
+               th Build Id
+               th Build Version
+               th Comments
+               th Build On
+             tbody
+              tr
+               td 1
+               td V.0.0.1
+               td testing
+               td 12/05/2016

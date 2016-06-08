@@ -1,0 +1,122 @@
+﻿extends ../layout/_fullwidth.jade
+include ./mixins/_flavors.jade
+include ./mixins/_os.jade
+block pageTitle
+  title ISCP | Environment
+block pageStyle
+block pageContent
+ .container-fluid
+   h1
+      span#spn-title Environment Details
+      if action === 'view'
+       span.pull-right  
+       if action === 'view'
+        if data.build_status == 'Created'
+         button#btn-updateinstance.btn.btn-color_4.pull-right(type='button') 
+          i.fa.fa-pencil(aria-hidden='true') 
+          |   Update Instance
+        span.pull-right  
+        a#btn-viewuser.btn.btn-color_3.pull-right(href='/environment/manage') 
+         i.fa.fa-arrow-left(aria-hidden='true') 
+         |  Back
+  .row
+   .col-md-9.col-xs-12
+     br
+     p.lead.col-md-offset-5.text-danger #{error} 
+     .row
+       form#form-updateenv.form-horizontal(action='/environment/update', method= 'post')
+        .form-group
+         .col-md-6.col-md-offset-3
+          #messages
+        .col-sm-6.col-sm-offset-3
+        .form-group.col-md-12
+          label.col-sm-3.control-label(for='environmentname') Environment Title
+          .col-sm-6
+            input#hdn-action(type='hidden', value='#{action}', name='action')
+            input#hdn-environmentid(type='hidden',name='environmentid', value='#{data.id}')
+            input#environmenttitle.form-control(type='text', name='environmenttitle', value='#{data.shortname}',maxlength='10',disabled)
+        .form-group.col-md-12
+          label.col-sm-3.control-label(for='environmentid') Environment Name
+          .col-sm-6
+            input.form-control(type='text', name='environment_name', value='#{data.name}',maxlength='5',disabled)
+        .form-group.col-md-12
+          label.col-sm-3.control-label(for='lastname') Description
+          .col-sm-6
+            textarea#txtar-description.form-control(rows = 6, name='description', disabled='' ) #{data.description}
+        .form-group.col-md-12
+          label.col-md-3.control-label(for='ddlos') OS
+          .col-md-6
+            select#ddlos.form-control(name='ddlos',disabled) 
+                   +os(data)
+        .form-group.col-md-12
+          label.col-md-3.control-label(for='ddlproduct') Flavors
+          .col-md-6
+            select#ddlflavors.form-control(name='ddlflavors',disabled) 
+                   +flavors(data)
+        #cost-details
+         .form-group.col-md-12
+          .col-md-6.col-md-offset-3.text-center
+           .panel.panel-default
+             .panel-heading.text-left
+              strong COST DETAILS     
+             .panel-body
+                .form-group
+                   .row
+                     .col-sm-4
+                       label.control-label.pull-right OS:
+                     .col-sm-3
+                       span.control-label.pull-left #{data.os_name}
+                   hr
+                .form-group
+                   .row
+                     .col-sm-4
+                       label.control-label.pull-right CPU:
+                     .col-sm-3
+                       span.control-label.pull-left #{data.cpu}
+                   hr
+                .form-group
+                   .row
+                     .col-sm-4
+                       label.control-label.pull-right RAM:
+                     .col-sm-3
+                       span.control-label.pull-left #{data.ram}
+                   hr
+                .form-group
+                   .row
+                     .col-sm-4
+                       label.control-label.pull-right STORAGE:
+                     .col-sm-3
+                       span.control-label.pull-left #{data.storage}
+                   hr
+                .form-group
+                   .row
+                     .col-sm-4
+                       h4.pull-right TOTAL:
+                     .col-sm-3
+                       h4.pull-left #{data.total_cost}    
+        #div-btnupdate.form-group.col-md-12.hide
+         .col-md-6.col-md-offset-3.text-center
+            hr
+            if action === 'view' || action === 'viewupdate'
+              a.btn.btn-default(href='/environment/view/#{data.id}')
+                i.fa.fa-times
+                |  Cancel
+              |     
+             else
+               a.btn.btn-default(href='/environment/manage')
+                i.fa.fa-times
+                |  Cancel
+              | 
+            button.btn.btn-color_1(type='submit')
+              i.fa.fa-check
+              |  Update
+            hr
+      
+block pageScript
+  script(src="../../caasjslib/caasjslib.environment.view.js" type="text/javascript")
+  script(src="../../caasjslib/caasjslib.environment.eventhandler.js" type="text/javascript")
+  script.
+    $(function () {
+     var view = caasjslib.environment.view;
+     view.ViewEnvironmentInit();
+    });

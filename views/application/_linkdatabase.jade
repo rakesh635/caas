@@ -1,0 +1,6 @@
+﻿select#ddldatabases.form-control(data-toggle='tooltip', title='Select your Link Database',name='ddldatabases')
+  option(value='') Select Database
+   if(databases)
+     each val in databases
+        option(value=val.application_id) #{val.application_name}
+      

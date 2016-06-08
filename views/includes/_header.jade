@@ -1,0 +1,50 @@
+header#header-main.navbar.navbar-default.navbar-fixed-top.minimal
+      .header-search-bar.collapse
+        .inner
+          .container-fluid
+            .row
+              .col-xs-12.col-xs-offset-0.col-md-4.col-md-offset-4
+                form(action='./web-pages-search.html', method='get')
+                  .input-group
+                    input#q.form-control.input-sm.input-block(name='q', placeholder='search...', type='text', value='')
+                    span.input-group-btn
+                      button.btn.btn-primary.btn-sm.icon-right(type='submit')
+                        | Search
+                        i.glyphicon.glyphicon-chevron-right
+      .header-nav-brand
+        .container-fluid
+          a.navbar-brand(href='#', title='IS Corporate Identity')
+            span.text IS Corporate Identity
+          button.navbar-toggle.collapsed(href='#side-menu-toggle', type='button')
+            span.sr-only Toggle navigation
+            i.icon.glyphicon.glyphicon-menu-hamburger
+          button.navbar-toggle.collapsed(href='#', data-toggle='collapse', data-target='#header-main .header-search-bar')
+            i.icon.glyphicon.glyphicon-search
+      nav.collapse.navbar-collapse.header-nav-utility
+        .container-fluid
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='#') Information
+            li
+              a(href='#') Support
+            li
+              button.btn.btn-primary.btn-sm(href='#', data-toggle='collapse', data-target='#header-main .header-search-bar')
+                i.glyphicon.glyphicon-search
+      nav.collapse.navbar-collapse.header-nav-main
+        .container-fluid
+          ul.nav.navbar-nav
+            a.navbar-brand(href='#') 
+           font(size='33', color='00AEEF') CaaS
+          ul.nav.navbar-nav.navbar-right
+            li
+              .btn-group.dropdown-toggle
+                button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown', aria-expanded='false')
+                  span.glyphicon.glyphicon-user
+                  |  #{session.accountdetails.fullname}
+                  span.icon.glyphicon.glyphicon-chevron-down
+                ul.dropdown-menu(role='menu')
+                  li.hidden-xs.hidden-sm
+                    a(href='/logout')
+                      i.text-danger.fa.fa-power-off 
+                       |Logout
+                     

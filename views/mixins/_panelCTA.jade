@@ -1,0 +1,16 @@
+mixin panelCTA(classExtra, imageUrl, title, linkTitle, linkHref,fontclass,icolor) 
+ .col-lg-12
+   div(class="panel panel-default #{classExtra}")
+    div.panel-body.text-center
+      a(href=linkHref)        
+         i(aria-hidden="true",class=fontclass,style="color:#{icolor}")
+      h4.title
+        =title
+
+      div.hidden-sm.hidden-xs
+        block
+
+    div.panel-footer.text-center.hidden-xs
+      a.btn.btn-main.icon-right(href=linkHref)
+        =linkTitle
+        i.glyphicon.glyphicon-chevron-right

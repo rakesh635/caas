@@ -1,0 +1,23 @@
+doctype html
+html(lang="en")
+
+  include ../includes/_head.jade
+
+  body#top
+
+    include ../includes/_skippy.jade
+
+   
+
+    //- Billboard
+    div.billboard
+      .container
+        block pageHeading
+         
+        block pageIntro
+
+    div#content(role="main")      
+      block pageContent
+        
+
+    include ../includes/_foot.jade

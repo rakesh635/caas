@@ -1,0 +1,9 @@
+﻿mixin flavors(flavors)
+  option(value='') Select Flavor
+    if action=="view" || action=="viewupdate" 
+       option(selected,value=data.product_id) #{data.product_name}
+    else
+     if(flavors)
+      each val in flavors   
+        option(value=val.product_id) #{val.product_name}
+      

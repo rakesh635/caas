@@ -1,0 +1,7 @@
+﻿mixin customers(items)
+  each val in items
+    if customerid == val.id         
+       option(selected,value=val.id) #{val.companyname}
+    else        
+       option(value=val.id) #{val.companyname}
+     

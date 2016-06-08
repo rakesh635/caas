@@ -1,0 +1,86 @@
+﻿extends ./../layout/_fullwidth.jade
+block pageTitle
+  title ISCP | User
+block pageStyle
+  link(rel="stylesheet" href="/assets/plugins/bootstrap-toggle/bootstrap-toggle.min.css")
+block pageContent
+ .container-fluid
+   h1
+        span#spn-title Instance Details
+        span.pull-right
+       if action === 'view'
+        if data.build_status == 'Created'
+         button#btn-updateinstance.btn.btn-color_4.pull-right(type='button') 
+          i.fa.fa-pencil(aria-hidden='true') 
+          |   Update Instance
+        span.pull-right  
+      if type === 'application'
+        a#btn-viewuser.btn.btn-color_3.pull-right(href='/application/manageinstance/#{data.application_id}') 
+         i.fa.fa-arrow-left(aria-hidden='true') 
+         |  Back
+      else
+        a#btn-viewuser.btn.btn-color_3.pull-right(href='/application/manageinstance') 
+         i.fa.fa-arrow-left(aria-hidden='true') 
+         |  Back
+  .row
+   .col-md-9.col-xs-12
+     br
+     p.lead.col-md-offset-5.text-danger #{error} 
+     .row
+       form#form-updateinstance.form-horizontal(action='/application/updateinstance', method= 'post')
+        .form-group
+          .col-md-6.col-md-offset-3
+            #messages
+        .col-sm-6.col-sm-offset-3
+           h5
+        .form-group.col-md-12
+          label.col-sm-3.control-label(for='instancename') App/Instance Name
+          .col-sm-6
+            input#hdn-action(type='hidden', value='#{action}', name='action')
+            input#hdn-app_instance_id(type='hidden',name='app_instance_id', value='#{data.appinstance_id}')
+            input#hdn-customerid(type='hidden',name='customerid', value='#{data.application_id}')
+            input#txt-instancename.form-control(type='text', name='instancename', value='#{data.appinstance_name}', disabled,maxlength='20')
+        .form-group.col-md-12
+          label.col-sm-3.control-label(for='environment') Environment
+          .col-sm-6
+            input#txt-environment.form-control(type='text', name='environment', value='#{data.environment_name}', disabled,maxlength='20')
+        .form-group.col-md-12
+          label.col-sm-3.control-label(for='buildversion') Build Version
+          .col-sm-6
+            input#txt-buildversion.form-control(type='text', name='buildversion', value='#{data.buildversion}', disabled,maxlength='40')
+        .form-group.col-md-12
+          label.col-sm-3.control-label(for='status') Status
+          .col-sm-6
+            input#txt-status.form-control(type='text', name='email', value='#{data.build_status}', disabled,maxlength='50')
+              
+
+        #div-btnupdate.col-md-6.col-md-offset-3.text-center.hide
+         hr
+         if action === 'view' || action === 'viewupdate'
+           a.btn.btn-default(href='/application/manageinstance')
+             i.fa.fa-times
+             |  Cancel
+           | 
+          else
+           a.btn.btn-default(href='/application/manageinstance')
+             i.fa.fa-times
+             |  Cancel
+           | 
+         button.btn.btn-color_1(type='submit')
+          i.fa.fa-check
+          |  Update
+         hr
+block pageScript
+  script(src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js" type="text/javascript")
+  script(src="/assets/plugins/bootstrap-toggle/bootstrap-toggle.min.js" type="text/javascript")
+  script(src="/assets/plugins/datatable/fnReloadAjax.js" type="text/javascript")
+  script(src="/caasjslib/caasjslib.application.view.js" type="text/javascript")
+  script(src="/caasjslib/caasjslib.application.common.js" type="text/javascript")
+  script(src="/caasjslib/caasjslib.application.eventhandler.js" type="text/javascript")
+  script(src="/caasjslib/caasjslib.application.viewmodel.js" type="text/javascript")
+
+  script.
+    $(function () {
+     var view = caasjslib.application.view;
+     view.ViewInstanceInit();
+    });

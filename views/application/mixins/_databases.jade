@@ -1,0 +1,11 @@
+﻿mixin databases(items)
+  option(value='0') Select a database
+  each val in items     
+     if pagemode=="view" || pagemode=="edit"       
+          if appdata.linked_db_id == val.application_id   
+              option(selected,value=val.application_id) #{val.application_name}
+          else 
+              option(value=val.application_id) #{val.application_name}             
+     else 
+        option(value=val.application_id) #{val.application_name}
+      

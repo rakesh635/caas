@@ -1,0 +1,8 @@
+﻿mixin os(os)
+  option(value='') Select OS
+     if action=="view" || action=="viewupdate" 
+       option(selected,value=data.os_id) #{data.os_name} ( V #{data.os_version} ) 
+     else
+      if(os)
+       each val in os   
+        option(value=val.os_id) #{val.os_name} ( V #{val.os_version} )

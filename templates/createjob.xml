@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+	<actions/>
+	<description>jobsnew1</description>
+	<keepDependencies>false</keepDependencies>
+	
+	<!-- parameters entry - starts -->
+	<properties>
+		<com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.17.1">
+			<projectUrl>https://github.com/rakesh635/junittest.git/</projectUrl>
+			<displayName></displayName>
+		</com.coravy.hudson.plugins.github.GithubProjectProperty>
+	</properties>
+	<!-- parameters entry - ends -->
+	
+	<!-- Git Configuration - starts -->
+	<scm class="hudson.plugins.git.GitSCM" plugin="git@2.4.2">
+		<configVersion>2</configVersion>
+		<userRemoteConfigs>
+			<hudson.plugins.git.UserRemoteConfig>
+				<url>https://github.com/rakesh635/junittest.git</url>
+			</hudson.plugins.git.UserRemoteConfig>
+		</userRemoteConfigs>
+		<branches>
+			<hudson.plugins.git.BranchSpec>
+			
+				<!-- specify the branch name - starts -->
+				<name>*/master</name>
+				<!-- specify the branch name - ends -->
+				
+			</hudson.plugins.git.BranchSpec>
+		</branches>
+		<doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+		<submoduleCfg class="list"/>
+		<extensions/>
+	</scm>
+	<!-- Git Configuration - ends -->
+	
+	<canRoam>true</canRoam>
+	<disabled>false</disabled>
+	<blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+	<blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  
+	<!-- create a random token, which will be used in buiding the job - starts -->
+	<authToken>test123</authToken>
+	<!-- create a random token, which will be used in buiding the job - ends -->
+  
+	<!-- triggers - starts -->
+	<triggers>
+	
+		<!-- build periodically - starts -->
+		<hudson.triggers.TimerTrigger>
+			<spec>H/15 * * * *</spec>
+		</hudson.triggers.TimerTrigger>
+		<!-- build periodically - ends -->
+		
+		<!-- build on every git commit - starts -->
+		<com.cloudbees.jenkins.GitHubPushTrigger plugin="github@1.17.1">
+			<spec></spec>
+		</com.cloudbees.jenkins.GitHubPushTrigger>
+		<!-- build on every git commit - ends -->
+		
+		<!-- poll git - starts -->
+		<hudson.triggers.SCMTrigger>
+			<spec>H/15 * * * *</spec>
+			<ignorePostCommitHooks>false</ignorePostCommitHooks>
+		</hudson.triggers.SCMTrigger>
+		<!-- poll git - ends -->
+	</triggers>
+	<!-- triggers - ends -->
+  
+	<concurrentBuild>false</concurrentBuild>
+	
+	<!-- builder - starts -->
+	<builders>
+		
+		<!-- shell script - starts -->
+		<hudson.tasks.Shell>
+			<command>cd /home/jenkins/workspace/demounit1/testresult
+			touch *.xml</command>
+		</hudson.tasks.Shell>
+		<!-- shell script - ends -->
+		
+		<!-- configured ant setup - starts -->
+		<hudson.tasks.Ant plugin="ant@1.2">
+			<targets></targets>
+			<antName>Ant Task1</antName>
+		
+			<!-- mention the build file - optional - default will be build.xml - starts -->
+			<buildFile>/home/jenkins/workspace/demounit1/build.xml</buildFile>
+			<!-- mention the build file - ends -->
+		</hudson.tasks.Ant>
+		<!-- configured ant setup - ends -->
+	
+	</builders>
+	<!-- builder - ends -->
+	
+	<!-- post build configuration - starts -->
+	<publishers>
+		<hudson.tasks.junit.JUnitResultArchiver plugin="junit@1.11">
+			<testResults>testresult/*TEST*.xml</testResults>
+			<keepLongStdio>true</keepLongStdio>
+			<healthScaleFactor>1.0</healthScaleFactor>
+			<allowEmptyResults>false</allowEmptyResults>
+		</hudson.tasks.junit.JUnitResultArchiver>
+		<hudson.plugins.git.GitPublisher plugin="git@2.4.2">
+			<configVersion>2</configVersion>
+			<pushMerge>false</pushMerge>
+			<pushOnlyIfSuccess>true</pushOnlyIfSuccess>
+			<forcePush>true</forcePush>
+			<branchesToPush>
+				<hudson.plugins.git.GitPublisher_-BranchToPush>
+					<targetRepoName>origin</targetRepoName>
+					<branchName>rahulnatarajan-javatest</branchName>
+				</hudson.plugins.git.GitPublisher_-BranchToPush>
+			</branchesToPush>
+		</hudson.plugins.git.GitPublisher>
+		<hudson.tasks.Mailer plugin="mailer@1.16">
+			<recipients>rakeshkumar.s@prodapt.com</recipients>
+			<dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
+			<sendToIndividuals>true</sendToIndividuals>
+		</hudson.tasks.Mailer>
+	</publishers>
+	<!-- post build configuration - ends -->
+	<buildWrappers/>
+</project>

@@ -1,0 +1,12 @@
+﻿mixin roles(items)
+  option(value='') Select Role Type
+   each val in items     
+        if action=="view" || action=="edit" || action=="update"       
+          if data.role_id == val.roleid    
+              option(selected,value=val.roleid) #{val.rolename} 
+          else 
+              option(value=val.roleid) #{val.rolename} 
+        else   
+         option(value=val.roleid) #{val.rolename} 
+
+

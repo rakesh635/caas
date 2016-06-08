@@ -1,0 +1,4 @@
+﻿select#mddlplugins.form-control(multiple='multiple')   
+   if(plugins)
+     each val in plugins
+         option(value=val.id) #{val.name}

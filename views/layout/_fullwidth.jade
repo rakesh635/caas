@@ -1,0 +1,26 @@
+doctype html
+html(lang="en")
+
+  include ../includes/_head.jade
+
+  body#top.mimimal-always
+
+    include ../includes/_skippy.jade
+
+    include ../includes/_header.jade
+
+    .animated-preloader-wrap
+
+    #content-wrapper-outer
+       include ../includes/_sidemenu.jade
+
+       #content-wrapper-inner
+          #content(role='main')
+            block billBoard
+            div.container-fluid
+               block pageContent
+
+    include ../includes/_footer.jade
+    include ../includes/_modal.jade
+    block modals
+    include ../includes/_foot.jade

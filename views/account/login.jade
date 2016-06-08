@@ -1,0 +1,149 @@
+﻿include ../layout/_nomenulayout.jade
+include ../includes/_head.jade
+block pageContent
+ .container-fluid
+  .container-login
+      h1 IS CaaS Identity
+      .card-container-s
+        img.profile-img-card-s(src='assets/img/logos/is-logo-secondary.png')
+        form#form-login.form-signin-s(action="/login", method="post")
+          div#div.text-center.text-danger #{data}
+          .form-group
+            input#hdn-forgotpswd(type='hidden', value='#{forgotpswd}')
+            input#input.form-control.inputText(type='text', placeholder='UserName', name='username', required = '', maxlength='20')
+          .form-group
+           input#input.form-control.inputPassword(type='password', placeholder='Password',  name='password', required = '',maxlength='20')
+          .form-group
+           input.btn-signin-s(type='submit', value='SIGN IN')
+      div(style='text-align: center')
+        a.link-s(href='#', data-toggle='modal', data-target='#myChangePassModal') Forgot password?
+      br
+      p.col-lg-8.col-lg-offset-2.text-center
+        | If you do not have login credentials, please contact your Client Manager or the Customer Call Centre on 
+        br
+        a(href='tel:0115750055') +27 (0)11 575-0055
+        |  or 
+        a(href='tel:0822345333') +27 (0)82 234-5333
+        | ; or email 
+        a(href='mailto:support@is.co.za') support@is.co.za
+        | .
+
+block pageScript
+
+ script(src="/assets/plugins/validator/bootstrapValidator.min.js" type="text/css")
+ script(src="/assets/plugins/validator/bootstrapValidator.min.js" type="text/javascript")
+
+ script.
+   $( document ).ready(function() {
+   
+   $('#form-login').bootstrapValidator({
+            feedbackIcons: {
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            excluded: [':disabled'],
+            fields: {
+                username: {
+                    validators: {
+                        notEmpty: {
+                            message: 'UserName is required'
+                        },
+                        stringLength: {
+                            max: 20,
+                            message: 'UserName should not exceed 20 characters'
+                        },
+                            regexp: {
+                            regexp: /^[0-9a-zA-Z]+$/,
+                            message: 'UserName should only contain alphanumeric character'
+                        }
+                    }
+                },
+                password: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Password is required'
+                        },
+                        stringLength: {
+                            max: 20,
+                            message: 'Password should not exceed 20 characters'
+                        },
+                        regexp: {
+                            regexp: /^[\w]+$/,
+                            message: 'Password should not contain white spaces'
+                        }
+                    }
+                }
+            }
+        });
+
+   $('#form-forgotpassword').bootstrapValidator({
+            feedbackIcons: {
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                username: {
+                    validators: {
+                        notEmpty: {
+                            message: 'UserName is required'
+                        },
+                        stringLength: {
+                            max: 20,
+                            message: 'UserName should not exceed 20 characters'
+                        },
+                            regexp: {
+                            regexp: /^[0-9a-zA-Z]+$/,
+                            message: 'UserName should only contain alphanumeric character'
+                        }
+                    }
+                },
+                email: {
+                    trigger: 'blur',
+                    validators: { 
+                    remote: {
+                            url: '/checkname',
+                            data: function (validator, $field, value) {
+                                return {
+                                    email: validator.getFieldElements('email').val(),
+                                    name: validator.getFieldElements('username').val(),
+                                    checktype: 'forgotpassword'
+                                };
+                            },
+                            message: 'UserName and Email Address does not match for account',
+                            type: 'POST'
+                        },
+                        notEmpty: {
+                            message: 'Email Address is required'
+                        },
+                        emailAddress: {
+                            message: 'Enter valid Email Address'
+                        },
+                        stringLength: {
+                            max: 50,
+                            message: 'Email Address should not exceed 50 characters'
+                        }
+                    }
+                }
+            }
+      });
+
+   $( "#input" ).focus(function() {
+     $('#div').hide();
+   });
+   $('.forgot-popupclose').on('click', function(){
+      window.location.href= '/';
+    });
+     var forgotpswd = $('#hdn-forgotpswd').val();
+     if(forgotpswd !== 'undefined' && forgotpswd !== null && forgotpswd !== ''){
+      var res = JSON.parse(forgotpswd);
+      if(res.status) {
+             $('#div-forgotpassword').hide();
+             $('#div-sendemail').removeClass('hide');
+             $('#myChangePassModal').modal('show');
+      }
+      else {
+       $('#lbl-emailfailure').removeClass('hide');
+       $('#myChangePassModal').modal('show');
+      }
+     }
+   });

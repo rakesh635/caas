@@ -1,0 +1,9 @@
+﻿select#ddlbuildtype.form-control(data-toggle='tooltip', title='Select a build Tool',name='ddlbuildtype')
+  option(value='0') Select Build Tool
+   if(buildtypes)
+     each val in buildtypes
+        if pagemode=="view" || pagemode=="edit"       
+          if appdata.buildtypeid== val.id    
+               option(selected,value=val.id) #{val.name} ( V#{val.buildtype_version} )
+        else      
+          option(value=val.id) #{val.name} ( V#{val.buildtype_version} )

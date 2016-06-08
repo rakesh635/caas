@@ -1,0 +1,13 @@
+﻿mixin environmentvariable(item) 
+ if(item)
+   each e in item        
+     .btn-group.environment-template
+       button.btn-primary.dropdown-toggle(type='button',area-expanded='false',data-toggle='dropdown',data-value='#{e.evalue}',data-key='#{e.ekey}')
+           span#i-env-name #{e.ekey}
+           span.icon.glyphicon.glyphicon-chevron-down    
+         ul.dropdown-menu(role='menu')
+            li
+              a.action-environment(href='#',data-pagemode='#{pagemode}')
+                span.glyphicon.glyphicon-eye-open
+                |  #{pagemode}           
+            li.divider   

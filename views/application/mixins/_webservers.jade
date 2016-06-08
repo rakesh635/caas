@@ -1,0 +1,10 @@
+﻿mixin webservers(items)
+  option(value='') Select Web Server
+  each val in items   
+      if pagemode=="view" || pagemode=="edit"       
+          if appdata.webserver_master_id== val.id    
+              option(selected,value=val.id) #{val.name} ( V#{val.version} )
+          else
+              option(value=val.id) #{val.name} ( V#{val.version} )  
+      else      
+       option(value=val.id) #{val.name} ( V#{val.version} )

@@ -1,0 +1,118 @@
+﻿.table-th-info > thead > tr > th {
+    background-color:#55C5EF;
+    color: white;
+}
+.toggle-off.btn{
+    padding-left:18px !important;
+}
+.n-m-b{
+    margin-bottom: 0 !important;
+}
+.n-p{
+    padding: 0 !important;
+}
+.progress{
+    background-color: #ddd;
+}
+.tbl-actions {
+    padding: 5px 0px 0px 20px;
+}
+.tbl-actions .dropdown-menu {
+    margin:3px 0 0 -120px;
+    min-width:200px !important;
+}
+.tbl-actions a{
+    color: #70266e !important;
+    font-size:14px;
+}
+.tbl-actions a i{
+   float:right;
+}
+
+hr.n-m{
+    margin:0px;
+}
+.has-error .control-label{
+    color:inherit !important;
+}
+.app-table.dataTable {
+    margin-top: 0 !important;
+}
+.w-5 {
+    width:5%;
+}
+.w-40 {
+    width: 40%;
+}
+.w-30{
+    width: 30%;
+}
+.w-350{
+    width:350px;
+}
+div.dataTables_wrapper div.dataTables_paginate {
+    margin: 4px !important;
+}
+.modal-instancelog {
+    height: 500px;
+    overflow-y:scroll;
+}
+.env-pnl{
+    height: 90px;
+    cursor:pointer;
+
+}
+.env-pnl .panel-body{
+    padding-top:30px;
+}
+.env-pnl:hover{
+    background-color:#eff5d6;
+}
+.p-30{
+    padding-left:30px;
+    padding-right:30px;
+}
+.env-pnl-sel {
+    background-color:#eff5d6;
+}
+.env-pnl .name{
+    font-size:20px;
+}
+.m-b-80{
+    margin-bottom:80px;
+}
+.p-r{
+    padding-right:10px;
+}
+div.dataTables_wrapper div.dataTables_filter input{
+    width:400px !important;
+}
+.dataTables_filter{
+    display:none;
+}
+.validate-user .form-control-feedback{
+    text-align:left;
+}
+.p-l-20{
+    padding-left:20px;
+}
+.z-index-db{
+
+}
+.z-index-msg{
+    z-index:9998 !important;
+    overflow:hidden !important;
+}
+
+.bg-white {
+    background-color: white !important;
+}
+.h-count {
+    font-size: 20px;
+    color:#00709a;
+}
+.dyn-height {
+    width:580px;
+    max-height:240px;
+    overflow-y:auto;
+}

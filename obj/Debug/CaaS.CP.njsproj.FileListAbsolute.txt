@@ -1,0 +1,12 @@
+D:\Mahendran\IS\POC\UI\CaaS.CP\obj\Debug\CaaS.CP.njsprojResolveAssemblyReference.cache
+D:\Mahendran\IS\POC\UI\CaaS.CP\bin\Microsoft.NodejsTools.WebRole.dll
+F:\CaaS\obj\Debug\CaaS.CP.njsprojResolveAssemblyReference.cache
+F:\CaaS\bin\Microsoft.NodejsTools.WebRole.dll
+D:\Projects\CAAS\SVN\trunk\POC\UI\CaaS.CP\bin\Microsoft.NodejsTools.WebRole.dll
+D:\Projects\CAAS\SVN\trunk\POC\UI\CaaS.CP\obj\Debug\CaaS.CP.njsprojResolveAssemblyReference.cache
+D:\Mahendran\IS\POC\UI\CaaS Projects\CaaS.CP\obj\Debug\CaaS.CP.njsprojResolveAssemblyReference.cache
+D:\Mahendran\IS\POC\UI\CaaS Projects\CaaS.CP\bin\Microsoft.NodejsTools.WebRole.dll
+D:\Projects\CAAS\SVN\trunk\POC\UI\CaaS Projects\CaaS.CP\bin\Microsoft.NodejsTools.WebRole.dll
+D:\Projects\CAAS\SVN\trunk\POC\UI\CaaS Projects\CaaS.CP\obj\Debug\CaaS.CP.njsprojResolveAssemblyReference.cache
+F:\Projects\CaaS\SVN\trunk\POC\UI\CaaS Projects\CaaS.CP\obj\Debug\CaaS.CP.njsprojResolveAssemblyReference.cache
+F:\Projects\CaaS\SVN\trunk\POC\UI\CaaS Projects\CaaS.CP\bin\Microsoft.NodejsTools.WebRole.dll

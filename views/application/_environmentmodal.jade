@@ -1,0 +1,44 @@
+﻿#environmentmodal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='messagemodalLabel')
+    .modal-dialog(role='document')
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
+            h4.modal-title Launch Application
+          .modal-body
+            .row
+               input#hdn-applicationid(type='hidden')
+               #env-mapping.dyn-height
+            .env-details.hide
+             .row
+              hr
+              table
+               tr 
+                td.p-30
+                 strong OS: 
+                 | Ubuntu 
+                td.p-30 
+                  strong CPU: 
+                  | 2
+                td.p-30 
+                 strong RAM: 
+                 | 8 GB 
+                td.p-30 
+                 strong Storage: 
+                 | 500 GB
+              hr
+              .row
+              label.col-md-3.control-label Build Version
+              .col-md-4#buildversions
+                 include _buildversion.jade
+              .row
+              label.col-md-3.control-label Instance Name
+              .col-md-4
+                 input#instancename.form-control(type='text', placeholder='Instance Name (Optional)', name='instancename',maxlength='20')
+             .row
+              hr
+             .row.col-md-7.col-md-offset-4
+                button.btn-launch.btn.btn-success.col-md-5(type='button', data-dismiss='modal') Launch
+             .row
+           
+            

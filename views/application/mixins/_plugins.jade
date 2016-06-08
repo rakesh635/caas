@@ -1,0 +1,4 @@
+﻿mixin plugins(items)
+  each val in items
+      if pagemode=="view" || pagemode=="edit"    
+          option(value=val.id) #{val.name}

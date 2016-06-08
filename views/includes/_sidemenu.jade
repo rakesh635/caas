@@ -1,0 +1,79 @@
+﻿nav#side-menu.minimal
+        ul
+         li(class=title=='home'?'mm-selected':undefined)
+            a(href='/dashboard')
+              i.fa.fa-home.fa-2x
+              | Home 
+         if session.accountdetails.isisadmin =="1" 
+            li.customers
+              span
+                i.fa.fa-users.fa-2x
+                | Customers
+              ul
+                li(class=title=='createcustomer'?'mm-selected':undefined)
+                  a(href='/customer/create')
+                    i.fa.fa-plus.fa-2x
+                    | Create Customer
+                li(class=title=='managecustomer'?'mm-selected':undefined)
+                  a(href='/customer/manage')
+                    i.fa.fa-th-list.fa-2x
+                    | Manage Customers
+            li.users
+             span
+               i.fa.fa-user.fa-2x
+               | Users
+             ul
+              li(class=title=='createuser'?'mm-selected':undefined)
+                  a(href='/user/create/new')
+                    i.fa.fa-plus.fa-2x
+                    | Create User
+              li(class=title=='managealluser'?'mm-selected':undefined)
+                a(href='/user/manageall')
+                  i.fa.fa-user.fa-2x
+                  | Manage Users
+            li.impersonate(class=title=='impersonateuser'?'mm-selected':undefined)
+             a(href='/user/impersonate')
+              i.fa.fa-random.fa-2x
+              | Impersonate User
+          if session.accountdetails.isisadmin =="0" 
+           li.applications
+             span
+               i.fa.fa-list-alt.fa-2x
+               | Applications
+             ul.sub-menu.nav-pills.nav-stacked              
+               li(class=title=='createapp'?'mm-selected':undefined)
+                 a(href='/application/createapplication')
+                   i.fa.fa-plus.fa-2x
+                   | Create Application
+               li(class=title=='createdb'?'mm-selected':undefined)
+                 a(href='/application/createdatabase')
+                   i.fa.fa-plus.fa-2x
+                   | Create Database              
+               li(class=title=='manageapp'?'mm-selected':undefined)
+                 a(href='/application/manage/all')
+                   i.fa.fa-th-list.fa-2x
+                   | Manange Applications
+               li(class=title=='manageinstance'?'mm-selected':undefined)
+                 a(href='/application/manageinstance')
+                   i.fa.fa-th-list.fa-2x
+                   | Manange Instances               
+           li(class=title=='CreateEnv'?'mm-selected':undefined)
+             span
+               i.fa.fa-desktop.fa-2x
+               | Environments
+             ul.sub-menu.nav-pills.nav-stacked
+               li(class=title=='CreateEnv'?'mm-selected':undefined)
+                 a(href='/environment/create')
+                   i.fa.fa-plus.fa-2x
+                   | Create Environment      
+               li(class=title=='ManageEnv'?'mm-selected':undefined)
+                 a(href='/environment/manage')
+                   i.fa.fa-th-list.fa-2x
+                   | Manage Environments
+               
+
+          li.divider
+          li.logout
+            a(href='/logout')
+              i.fa.fa-power-off.fa-2x
+              |  Logout

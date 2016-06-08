@@ -1,0 +1,31 @@
+﻿extends layout/_fullwidth.jade
+
+include mixins/_panelCTA.jade
+
+block pageTitle
+  title Home | Internet Solutions Styleguide
+
+block pageHeading
+  h1 Internet Solutions Styleguide
+
+block pageIntro
+  
+  
+block pageContent
+  .container
+    div.row.equal-height-panels
+      div.col-xs-12.col-xs-offset-0.col-sm-4
+        +panelCTA("color_7", "./assets/img/pictographs/card_settings.png", "Documentation", "Go to the docs", "./docs.html")
+          Documentation for the Styleguide 
+          a(href="./docs.html") CSS,
+          | 
+          a(href="./docs-components.html") Components
+          |  and 
+          a(href="./docs-javascript.html") Javascript
+      div.col-xs-6.col-sm-4
+        +panelCTA("color_6", "./assets/img/pictographs/card_trigger.png", "Web Example", "Go to the example", "./web.html")
+          | Example of Web implementation<br />&nbsp;
+      div.col-xs-6.col-sm-4
+        +panelCTA("color_6", "./assets/img/pictographs/card_trigger.png", "Mobile Example", "Go to the example", "./mobile.html")
+          | Example of Mobile implementation<br />&nbsp;
+

@@ -1,0 +1,36 @@
+﻿#environmentvariablemodal.modal.fade.z-index-msg(tabindex='-1', role='dialog', aria-labelledby='environmentvariablemodallabel')
+      .modal-dialog(role='document')
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
+            h4#environmentvariablemodallabel.modal-title Add Environment Variable
+            input#hdn-envapptype(type='hidden')
+          .modal-body
+             .form-horizontal#form-envvariable
+                .form-body
+                   if(pagemode=="view")  
+                    .form-group
+                      label.col-md-3.control-label Variable
+                      .col-md-6
+                          input#txtenvkey.form-control(type='text',name='txtenvkey',readonly,maxlength='25')                        
+                    .form-group
+                       label.col-md-3.control-label Value
+                       .col-md-6
+                          input#txtenvvalue.form-control(type='text',name='txtenvvalue',readonly,maxlength='50')  
+                   else
+                     .form-group
+                      label.col-md-3.control-label Variable
+                      .col-md-6
+                          input#txtenvkey.form-control(type='text',name='txtenvkey',maxlength='25')
+                          span#skeyexist.text-danger.hide key already exist
+                     .form-group
+                       label.col-md-3.control-label Value
+                       .col-md-6
+                          input#txtenvvalue.form-control(type='text',name='txtenvvalue',maxlength='50')  
+          .modal-footer
+            if(pagemode=="view")  
+             button.btn.btn-default(type='button', data-dismiss='modal') Close          
+            else
+             button#btnaddenv.btn.btn-primary(type='button', data-dismiss='modal',data-updatebtnid='') Add
+             button.btn.btn-default(type='button', data-dismiss='modal') Close          

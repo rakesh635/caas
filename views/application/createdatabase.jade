@@ -1,0 +1,25 @@
+﻿extends ../layout/_fullwidth.jade
+include ./mixins/_platforms.jade
+block pageTitle
+  title  ISCP | Create Database
+
+block pageContent
+  h1#overview.page-header Create Database Service            
+            a.btn.btn-color_3.pull-right(href='/application/manage/all') 
+               i.fa.fa-arrow-left(aria-hidden='true') 
+               |    Back
+   include _createdatabase.jade
+  include ./template/_environmenttemplate.jade
+block modals
+ include _environmentvariablemodal.jade  
+ include _messagemodal.jade 
+block pageScript     
+    script(src="/caasjslib/caasjslib.application.view.js" type="text/javascript")
+    script(src="/caasjslib/caasjslib.application.common.js" type="text/javascript")
+    script(src="/caasjslib/caasjslib.application.eventhandler.js" type="text/javascript")
+    script(type='text/javascript').
+      $(function(){
+            var appview=caasjslib.application.view;
+             appview.CreateApplicationInit('dbcreate');             
+      });
+           
